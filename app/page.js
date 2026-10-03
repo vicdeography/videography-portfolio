@@ -1,5 +1,4 @@
 app/page.js
-```jsx
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -118,7 +117,13 @@ export default function HomePage() {
             <div className="logo-orb" aria-label="Animated placeholder logo" />
             <span>Animated Logo</span>
           </div>
-          <div className="showreel-panel" onClick={() => setSelectedVideo({ title: 'Showreel', type: 'showreel' })} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo({ title: 'Showreel', type: 'showreel' })}>
+          <div
+            className="showreel-panel"
+            onClick={() => setSelectedVideo({ title: 'Showreel', type: 'showreel' })}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo({ title: 'Showreel', type: 'showreel' })}
+          >
             <div className="play-badge">▶</div>
             <div className="showreel-meta">
               <p>Showreel</p>
@@ -142,7 +147,14 @@ export default function HomePage() {
 
         <div className="work-grid">
           {featuredWork.map((item) => (
-            <article key={item.title} className="portfolio-card" onClick={() => setSelectedVideo(item)} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo(item)}>
+            <article
+              key={item.title}
+              className="portfolio-card"
+              onClick={() => setSelectedVideo(item)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setSelectedVideo(item)}
+            >
               <div className="video-thumb" aria-label={`${item.title} thumbnail`}>
                 <span className="video-number">{item.accent}</span>
                 <div className="play-circle">▶</div>

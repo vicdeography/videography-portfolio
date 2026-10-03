@@ -1,5 +1,4 @@
 .gitignore
-```text
 node_modules
 .next
 out

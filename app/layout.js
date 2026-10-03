@@ -1,5 +1,4 @@
 app/layout.js
-```jsx
 import './globals.css';
 
 export const metadata = {
