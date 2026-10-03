@@ -40,6 +40,57 @@ a {
   text-transform: uppercase;
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  margin: 0 0 32px;
+  font-size: 0.8rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  color: rgba(18, 18, 18, 0.7);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #121212;
+  border-bottom-color: #121212;
+}
+
+.category-header {
+  text-align: center;
+  padding: 8px 0 32px;
+}
+
+.category-header h2 {
+  margin: 0 0 12px;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.category-header .lede {
+  margin: 0 auto;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.back-link {
+  margin-top: 56px;
+  text-align: center;
+}
+
 .reel-block {
   display: flex;
   flex-direction: column;
@@ -150,6 +201,7 @@ a {
 }
 
 .card {
+  display: block;
   border: 1px solid rgba(18, 18, 18, 0.12);
   overflow: hidden;
   background: rgba(255,255,255,0.18);
@@ -200,5 +252,9 @@ a {
 
   .hero-panel {
     padding: 14px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }

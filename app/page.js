@@ -1,11 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import SiteNav from './SiteNav';
+import { categories } from './categories';
 
 export default function HomePage() {
-  const workItems = ['Sports', 'Promotional', 'Short Film', 'Miscellaneous'];
-
   return (
     <main className="page-shell">
       <p className="credit">A Project by Victor Pereira-Leite</p>
+      <SiteNav />
 
       <section className="reel-block">
         <div className="hero-panel">
@@ -30,11 +32,11 @@ export default function HomePage() {
       <section id="work" className="content-block">
         <p className="eyebrow">Selected work</p>
         <div className="card-grid">
-          {workItems.map((item, index) => (
-            <article key={item} className="card">
+          {categories.map((category, index) => (
+            <Link key={category.slug} href={`/${category.slug}`} className="card">
               <div className="card-image">{index + 1}</div>
-              <h3>{item}</h3>
-            </article>
+              <h3>{category.title}</h3>
+            </Link>
           ))}
         </div>
       </section>
