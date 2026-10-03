@@ -1,7 +1,7 @@
 export const categories = [
   {
-    slug: 'promotional',
-    title: 'Promotional',
+    slug: 'brand-videos',
+    title: 'Brand Videos',
     blurb: 'Brand films, product spots, and social content for businesses.',
   },
   {
