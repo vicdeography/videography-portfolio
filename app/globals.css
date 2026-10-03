@@ -30,6 +30,28 @@ a {
   padding: 28px 20px 80px;
 }
 
+.credit {
+  margin: 0 0 20px;
+  text-align: center;
+  color: rgba(18, 18, 18, 0.7);
+  font-size: 0.8rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.reel-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.logo {
+  width: min(420px, 70%);
+  height: auto;
+}
+
 .topbar {
   display: flex;
   align-items: center;

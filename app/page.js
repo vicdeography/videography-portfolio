@@ -1,8 +1,19 @@
+import Image from 'next/image';
+
 export default function HomePage() {
   const workItems = ['Sports', 'Promotional', 'Short Film', 'Miscellaneous'];
 
   return (
     <main className="page-shell">
+      <p className="credit">A Project by Victor Pereira-Leite</p>
+
+      <section className="reel-block">
+        <div className="hero-panel">
+          <div className="placeholder-box">Preview reel</div>
+        </div>
+        <Image className="logo" src="/logo.png" alt="Vic Deography logo" width={1200} height={575} priority />
+      </section>
+
       <header className="topbar">
         <div className="brand-block">
           <div className="brand-mark">V</div>
@@ -24,10 +35,6 @@ export default function HomePage() {
             <a className="button primary" href="#work">View work</a>
             <a className="button secondary" href="#contact">Contact</a>
           </div>
-        </div>
-
-        <div className="hero-panel">
-          <div className="placeholder-box">Preview reel</div>
         </div>
       </section>
 
