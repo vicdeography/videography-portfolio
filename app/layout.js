@@ -1,9 +1,8 @@
-app/layout.js
 import './globals.css';
 
 export const metadata = {
   title: 'Vic Deography | Cinematography Portfolio',
-  description: 'Modern videography and cinematography portfolio',
+  description: 'Rough draft portfolio website for videography and cinematography work.',
 };
 
 export default function RootLayout({ children }) {
