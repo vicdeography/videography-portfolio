@@ -1,17 +1,17 @@
 export const categories = [
   {
-    slug: 'sports',
-    title: 'Sports',
-    blurb: 'Game day coverage, athlete features, and highlight reels.',
-  },
-  {
     slug: 'promotional',
     title: 'Promotional',
     blurb: 'Brand films, product spots, and social content for businesses.',
   },
   {
-    slug: 'short-film',
-    title: 'Short Film',
+    slug: 'sports',
+    title: 'Sports',
+    blurb: 'Game day coverage, athlete features, and highlight reels.',
+  },
+  {
+    slug: 'short-films',
+    title: 'Short Films',
     blurb: 'Narrative and documentary shorts.',
   },
   {

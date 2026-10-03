@@ -14,6 +14,7 @@ export default function SiteNav({ current }) {
           {category.title}
         </Link>
       ))}
+      <Link href="/#about">About Me</Link>
     </nav>
   );
 }
