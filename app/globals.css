@@ -99,6 +99,20 @@ a {
   padding-bottom: 48px;
 }
 
+.header-shell {
+  padding-bottom: 0;
+}
+
+.demo-reel .placeholder-box {
+  max-width: none;
+  aspect-ratio: 16 / 9;
+  max-height: 85vh;
+}
+
+.reel-credit {
+  padding-top: 32px;
+}
+
 .site-header {
   display: flex;
   flex-direction: column;
