@@ -106,6 +106,15 @@ a {
   padding-top: 24px;
 }
 
+.reel-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 85vh;
+  object-fit: cover;
+  background: #121212;
+}
+
 .reel-credit {
   padding-top: 32px;
 }

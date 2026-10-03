@@ -1,5 +1,8 @@
 import SiteNav from './SiteNav';
 
+// Direct link to the demo reel video file (MP4). Leave empty to show the placeholder.
+const REEL_URL = '';
+
 export default function HomePage() {
   return (
     <main>
@@ -8,7 +11,11 @@ export default function HomePage() {
       </div>
 
       <section className="demo-reel">
-        <div className="placeholder-box">Preview reel</div>
+        {REEL_URL ? (
+          <video className="reel-video" src={REEL_URL} autoPlay muted loop playsInline preload="auto" />
+        ) : (
+          <div className="placeholder-box">Preview reel</div>
+        )}
       </section>
 
       <div className="page-shell">
