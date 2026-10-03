@@ -8,7 +8,8 @@ html {
 
 body {
   margin: 0;
-  background: #f3efe9;
+  background: #f3efe9 url('/wave-pattern.png') repeat;
+  background-size: 238px 150px;
   color: #121212;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.5;
