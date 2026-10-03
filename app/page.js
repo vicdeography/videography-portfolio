@@ -14,19 +14,8 @@ export default function HomePage() {
         <Image className="logo" src="/logo.png" alt="Vic Deography logo" width={1200} height={575} priority />
       </section>
 
-      <header className="topbar">
-        <div className="brand-block">
-          <div className="brand-mark">V</div>
-          <div>
-            <p className="eyebrow">Videography</p>
-            <h1>Vic Deography</h1>
-          </div>
-        </div>
-      </header>
-
       <section className="hero">
         <div>
-          <p className="eyebrow">Cinematography / Editing / Story</p>
           <h2>Crafting visuals that move people.</h2>
           <p className="lede">
             Rough draft portfolio for sports, lifestyle, and brand storytelling.
