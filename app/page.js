@@ -1,4 +1,3 @@
-app/page.js
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -31,9 +30,9 @@ const featuredWork = [
 ];
 
 const quotes = [
-  '“We needed someone who could make everything feel cinematic without forcing it.”',
-  '“Every frame felt intentional — from the pacing to the emotion.”',
-  '“The final edit didn’t just capture the moment; it elevated it.”',
+  '"We needed someone who could make everything feel cinematic without forcing it."',
+  '"Every frame felt intentional — from the pacing to the emotion."',
+  '"The final edit didn\'t just capture the moment; it elevated it."',
 ];
 
 const brands = ['AER', 'MONARCH', 'NEXUS', 'KOVA', 'LUNE', 'MIRAGE'];
@@ -179,7 +178,7 @@ export default function HomePage() {
           <p className="eyebrow">About me</p>
           <h3>Calm direction, honest storytelling, and a sharp eye for detail.</h3>
           <p>
-            I’m a videographer and cinematographer focused on creating work that feels immersive,
+            I'm a videographer and cinematographer focused on creating work that feels immersive,
             grounded, and emotionally resonant. My approach blends clean composition with natural movement,
             so every frame carries intention.
           </p>
@@ -206,7 +205,7 @@ export default function HomePage() {
       <section id="contact" className="contact-section reveal">
         <div className="section-heading narrow">
           <p className="eyebrow">Contact</p>
-          <h3>Let’s build something memorable.</h3>
+          <h3>Let's build something memorable.</h3>
         </div>
 
         <div className="contact-panel">
