@@ -22,7 +22,6 @@ export default function CategoryPage({ params }) {
 
   return (
     <main className="page-shell">
-      <p className="credit">A Project by Victor Pereira-Leite</p>
       <SiteNav current={category.slug} />
 
       <section className="category-header">

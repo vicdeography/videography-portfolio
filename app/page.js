@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import SiteNav from './SiteNav';
 import { categories } from './categories';
@@ -6,14 +5,13 @@ import { categories } from './categories';
 export default function HomePage() {
   return (
     <main className="page-shell">
-      <p className="credit">A Project by Victor Pereira-Leite</p>
       <SiteNav />
 
       <section className="reel-block">
         <div className="hero-panel">
           <div className="placeholder-box">Preview reel</div>
         </div>
-        <Image className="logo" src="/logo.png" alt="Vic Deography logo" width={1200} height={575} priority />
+        <p className="credit">A Project by Victor Pereira-Leite</p>
       </section>
 
       <section className="hero">
