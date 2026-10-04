@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ContactForm from './ContactForm';
 import ReelVideo from './ReelVideo';
 import SiteNav from './SiteNav';
 
@@ -25,7 +26,7 @@ export default function HomePage() {
 
       <div className="page-shell">
         <section id="contact" className="contact-bar">
-          <h2 className="contact-heading">Contact</h2>
+          <h2 className="contact-heading">Contact Information</h2>
           <div className="contact-row">
             <div className="contact-box">
               <p>Email</p>
@@ -52,13 +53,18 @@ export default function HomePage() {
 
         <section className="content-block about-section">
           <div className="intro-grid">
-            <div className="portrait-placeholder">Photo</div>
             <div className="about-teaser">
+              <div className="portrait-placeholder">Photo</div>
               <p>
                 I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
                 shoot brand videos, sports and short films, with a focus on honest storytelling and
                 strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
               </p>
+            </div>
+
+            <div className="get-in-touch">
+              <h2 className="contact-heading">Get in Touch</h2>
+              <ContactForm />
             </div>
           </div>
         </section>
