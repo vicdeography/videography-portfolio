@@ -31,14 +31,6 @@ a {
   padding: 28px 20px 80px;
 }
 
-.credit {
-  margin: 0;
-  text-align: center;
-  color: rgba(18, 18, 18, 0.7);
-  font-size: 0.8rem;
-  letter-spacing: 0.12rem;
-  text-transform: uppercase;
-}
 
 .site-nav {
   display: flex;
@@ -167,9 +159,6 @@ a {
   transition-timing-function: linear;
 }
 
-.reel-credit {
-  padding-top: 40px;
-}
 
 .site-header {
   display: flex;
@@ -380,6 +369,28 @@ a {
   letter-spacing: 0.18rem;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.contact-form .honeypot {
+  display: none;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.form-status.error {
+  color: #a3261b;
+}
+
+.form-status a {
+  text-decoration: underline;
+}
+
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .contact-form button:hover {

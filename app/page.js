@@ -49,8 +49,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <p className="credit reel-credit">A Project by Victor Pereira-Leite</p>
-
         <section className="content-block about-section">
           <div className="intro-grid">
             <div className="about-teaser">
