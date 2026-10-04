@@ -28,6 +28,15 @@ export default function HomePage() {
 
         <section id="contact" className="content-block contact-block">
           <div className="intro-grid">
+            <div className="about-teaser">
+              <div className="portrait-placeholder">Photo</div>
+              <p>
+                I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
+                shoot brand videos, sports and short films, with a focus on honest storytelling and
+                strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
+              </p>
+            </div>
+
             <div>
               <p className="eyebrow">Contact</p>
               <div className="contact-list">
@@ -51,15 +60,6 @@ export default function HomePage() {
                   <span>Chicago, IL</span>
                 </div>
               </div>
-            </div>
-
-            <div className="about-teaser">
-              <div className="portrait-placeholder">Photo</div>
-              <p>
-                I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
-                shoot brand videos, sports and short films, with a focus on honest storytelling and
-                strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
-              </p>
             </div>
           </div>
         </section>

@@ -5,6 +5,11 @@ export const categories = [
     blurb: 'Brand films, product spots, and social content for businesses.',
   },
   {
+    slug: 'events',
+    title: 'Events',
+    blurb: 'Coverage of live events, from concerts and conferences to celebrations.',
+  },
+  {
     slug: 'sports',
     title: 'Sports',
     blurb: 'Game day coverage, athlete features, and highlight reels.',
