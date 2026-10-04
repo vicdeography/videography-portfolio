@@ -197,6 +197,24 @@ a {
   letter-spacing: -0.05em;
 }
 
+.content-block.contact-block {
+  padding-top: 32px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.about-body {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
 .contact-box {
   margin-top: 16px;
   border: 1px solid rgba(18, 18, 18, 0.12);
@@ -213,8 +231,13 @@ a {
   text-transform: uppercase;
 }
 
-.contact-box a {
+.contact-box a,
+.contact-box span {
   font-size: 1.1rem;
+}
+
+.contact-grid .contact-box {
+  margin-top: 0;
 }
 
 @media (max-width: 560px) {

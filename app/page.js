@@ -21,19 +21,25 @@ export default function HomePage() {
       <div className="page-shell">
         <p className="credit reel-credit">A Project by Victor Pereira-Leite</p>
 
-        <section id="about" className="content-block">
-          <p className="eyebrow">About</p>
-          <p>
-            This is a simple rough draft of the portfolio site. The goal is to get a working page live,
-            then refine it visually in future iterations.
-          </p>
-        </section>
-
-        <section id="contact" className="content-block">
+        <section id="contact" className="content-block contact-block">
           <p className="eyebrow">Contact</p>
-          <div className="contact-box">
-            <p>Email</p>
-            <a href="mailto:hello@vicdeography.com">hello@vicdeography.com</a>
+          <div className="contact-grid">
+            <div className="contact-box">
+              <p>Email</p>
+              <a href="mailto:hello@vicdeography.com">hello@vicdeography.com</a>
+            </div>
+            <div className="contact-box">
+              <p>Phone</p>
+              <a href="tel:+15555555555">(555) 555-5555</a>
+            </div>
+            <div className="contact-box">
+              <p>Instagram</p>
+              <a href="https://instagram.com/vicdeography">@vicdeography</a>
+            </div>
+            <div className="contact-box">
+              <p>Based in</p>
+              <span>City, State</span>
+            </div>
           </div>
         </section>
       </div>

@@ -8,7 +8,7 @@ export default function SiteNav({ current }) {
       <Link href="/" className="wordmark-link" aria-label="Vicdeography home">
         <Image className="wordmark" src="/wordmark.png" alt="Vicdeography" width={1400} height={144} priority />
       </Link>
-      <nav className="site-nav" aria-label="Work categories">
+      <nav className="site-nav" aria-label="Site">
         <Link href="/" className={current ? undefined : 'active'}>Home</Link>
         {categories.map((category) => (
           <Link
@@ -19,7 +19,7 @@ export default function SiteNav({ current }) {
             {category.title}
           </Link>
         ))}
-        <Link href="/#about">About Me</Link>
+        <Link href="/about" className={current === 'about' ? 'active' : undefined}>About Me</Link>
       </nav>
     </header>
   );
