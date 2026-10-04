@@ -14,7 +14,7 @@ const STANDBY_DELAY_MS = 4000;
 // while it seeks back and re-buffers the start, which is noticeable on large 4K files. Instead,
 // a second copy waits at the first frame and takes over just before the active one ends, as long
 // as it has buffered enough to play. Otherwise the built-in loop is used for that pass.
-export default function ReelVideo({ src }) {
+export default function ReelVideo({ src, poster }) {
   const firstRef = useRef(null);
   const secondRef = useRef(null);
 
@@ -100,11 +100,12 @@ export default function ReelVideo({ src }) {
   }, [src]);
 
   return (
-    <div className="reel-video">
+    <div className="reel-video" style={poster ? { backgroundImage: `url(${poster})` } : undefined}>
       <video
         ref={firstRef}
         className="reel-layer"
         src={src}
+        poster={poster}
         style={{ transitionDuration: `${FADE_SECONDS}s` }}
         autoPlay
         muted

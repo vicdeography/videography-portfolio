@@ -2,8 +2,11 @@ import Link from 'next/link';
 import ReelVideo from './ReelVideo';
 import SiteNav from './SiteNav';
 
-// Direct link to the demo reel video file (H.264, MP4 or MOV). Leave empty to show the placeholder.
-const REEL_URL = 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/4k%20Reel%20h264.mov';
+// The demo reel: a 1080p H.264 MP4 with its index at the front ("fast start") so it can begin
+// playing before it has fully downloaded, plus its first frame to show while it loads.
+// Leave REEL_URL empty to show the placeholder.
+const REEL_URL = '/reel/reel-1080.mp4';
+const REEL_POSTER = '/reel/reel-poster.jpg';
 
 export default function HomePage() {
   return (
@@ -14,7 +17,7 @@ export default function HomePage() {
 
       <section className="demo-reel">
         {REEL_URL ? (
-          <ReelVideo src={REEL_URL} />
+          <ReelVideo src={REEL_URL} poster={REEL_POSTER} />
         ) : (
           <div className="placeholder-box">Preview reel</div>
         )}

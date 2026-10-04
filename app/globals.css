@@ -114,6 +114,8 @@ a {
 
 .reel-video {
   position: relative;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 85vh;
