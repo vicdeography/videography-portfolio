@@ -24,12 +24,6 @@ export default function CategoryPage({ params }) {
     <main>
       <div className="page-shell header-shell">
         <SiteNav current={category.slug} />
-
-        <section className="category-header">
-          <p className="eyebrow">Work</p>
-          <h2>{category.title}</h2>
-          <p className="lede">{category.blurb}</p>
-        </section>
       </div>
 
       <section className="demo-reel">
@@ -37,6 +31,12 @@ export default function CategoryPage({ params }) {
       </section>
 
       <div className="page-shell">
+        <section className="category-header below-reel">
+          <p className="eyebrow">Work</p>
+          <h2>{category.title}</h2>
+          <p className="lede">{category.blurb}</p>
+        </section>
+
         <section className="content-block projects-block">
           <p className="eyebrow">Projects</p>
           <div className="project-grid">
