@@ -1,6 +1,10 @@
+import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { categories } from './categories';
+
+// On phones the menu splits into two rows after this category.
+const MOBILE_BREAK_AFTER = 'sports';
 
 export default function SiteNav({ current }) {
   return (
@@ -12,13 +16,12 @@ export default function SiteNav({ current }) {
       <nav className="site-nav" aria-label="Site">
         <Link href="/" className={current ? undefined : 'active'}>Home</Link>
         {categories.map((category) => (
-          <Link
-            key={category.slug}
-            href={`/${category.slug}`}
-            className={current === category.slug ? 'active' : undefined}
-          >
-            {category.title}
-          </Link>
+          <Fragment key={category.slug}>
+            <Link href={`/${category.slug}`} className={current === category.slug ? 'active' : undefined}>
+              {category.title}
+            </Link>
+            {category.slug === MOBILE_BREAK_AFTER && <span className="nav-break" aria-hidden="true" />}
+          </Fragment>
         ))}
         <Link href="/about" className={current === 'about' ? 'active' : undefined}>About Me</Link>
       </nav>
