@@ -65,14 +65,44 @@ a {
   border-bottom-color: #121212;
 }
 
+.dark-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dark-layout > .page-shell {
+  width: 100%;
+}
+
+.dark-page {
+  flex: 1;
+  background: #000;
+  color: #f3efe9;
+}
+
+.dark-page .eyebrow {
+  color: rgba(243, 239, 233, 0.65);
+}
+
+.dark-page .lede {
+  color: rgba(243, 239, 233, 0.8);
+}
+
+.dark-page .card {
+  border-color: rgba(243, 239, 233, 0.18);
+  background: rgba(243, 239, 233, 0.04);
+}
+
+.dark-page .card-image {
+  background: linear-gradient(135deg, #2a2724, #6f6760, #a79c92);
+}
+
 .category-header {
   text-align: center;
   padding: 8px 0 32px;
 }
 
-.category-header.below-reel {
-  padding: 16px 0 8px;
-}
 
 .category-header h2 {
   margin: 0 0 12px;
