@@ -168,7 +168,7 @@ a {
 }
 
 .reel-credit {
-  padding-top: 32px;
+  padding-top: 40px;
 }
 
 .site-header {
@@ -264,15 +264,29 @@ a {
   letter-spacing: -0.05em;
 }
 
-.content-block.contact-block {
-  padding-top: 32px;
-}
 
 .intro-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 48px;
-  align-items: start;
+  align-items: center;
+}
+
+.contact-bar {
+  padding-top: 12px;
+  text-align: center;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  gap: 24px 32px;
+  margin-top: 24px;
+}
+
+.content-block.about-section {
+  padding-top: 40px;
 }
 
 .contact-heading {
@@ -284,18 +298,7 @@ a {
   line-height: 1.2;
 }
 
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-top: 28px;
-}
 
-.with-icon {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
 .about-teaser {
   padding-top: 0;
@@ -313,7 +316,7 @@ a {
 }
 
 .about-teaser p {
-  margin: 20px 0 0;
+  margin: 0;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -400,7 +403,17 @@ a {
 @media (max-width: 760px) {
   .intro-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
+  }
+
+  .contact-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+  }
+
+  .contact-box a,
+  .contact-box span {
+    font-size: 0.95rem;
   }
 }
 
