@@ -344,11 +344,23 @@ a {
 }
 
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
+  /* Keep the whole menu on one line: the text scales with the screen width.
+     39.5 is the menu's width per pixel of font size (plus a little slack);
+     80px covers the page padding and the gaps between items. */
   .site-nav {
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0 6px;
+    font-size: min(0.8rem, calc((100vw - 80px) / 39.5));
+    letter-spacing: 0.02em;
   }
 
+  .site-nav a {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
   .intro-grid {
     grid-template-columns: 1fr;
     gap: 32px;
