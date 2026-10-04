@@ -2,8 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 
-// How long (in seconds) the end of the reel crossfades into the start. Set to 0 for a hard cut.
-const FADE_SECONDS = 0.3;
+// How long (in seconds) the end of the reel crossfades into the start. 0 is a hard cut.
+const FADE_SECONDS = 0;
+// How early to hand over before the end: enough to finish the fade, or a couple of frames for a cut.
+const SWITCH_AHEAD = FADE_SECONDS > 0 ? FADE_SECONDS + 0.15 : 0.05;
 
 // Plays the reel on a seamless loop. The browser's built-in `loop` pauses briefly at the end
 // while it seeks back and re-buffers the start, which is noticeable on large 4K files. Instead,
@@ -27,7 +29,7 @@ export default function ReelVideo({ src }) {
       const next = videos[1 - active];
       const remaining = current.duration - current.currentTime;
 
-      if (!switching && Number.isFinite(remaining) && remaining <= FADE_SECONDS + 0.15) {
+      if (!switching && Number.isFinite(remaining) && remaining <= SWITCH_AHEAD) {
         switching = true;
         if (next.currentTime > 0.01) next.currentTime = 0;
         next.play().catch(() => {});
