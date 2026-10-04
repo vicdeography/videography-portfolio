@@ -1,7 +1,8 @@
+import ReelVideo from './ReelVideo';
 import SiteNav from './SiteNav';
 
 // Direct link to the demo reel video file (H.264, MP4 or MOV). Leave empty to show the placeholder.
-const REEL_URL = 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Main%20Reel.mov';
+const REEL_URL = 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/4k%20Reel%20h264.mov';
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
 
       <section className="demo-reel">
         {REEL_URL ? (
-          <video className="reel-video" src={REEL_URL} autoPlay muted loop playsInline preload="auto" />
+          <ReelVideo src={REEL_URL} />
         ) : (
           <div className="placeholder-box">Preview reel</div>
         )}
