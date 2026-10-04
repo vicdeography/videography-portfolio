@@ -6,10 +6,14 @@ import { useEffect, useRef } from 'react';
 const FADE_SECONDS = 0;
 // How early to hand over before the end: enough to finish the fade, or a couple of frames for a cut.
 const SWITCH_AHEAD = FADE_SECONDS > 0 ? FADE_SECONDS + 0.15 : 0.05;
+// Start loading the standby copy once the visible one has played this long, so the two copies
+// don't compete for bandwidth while the page is first loading.
+const STANDBY_DELAY_MS = 4000;
 
 // Plays the reel on a seamless loop. The browser's built-in `loop` pauses briefly at the end
 // while it seeks back and re-buffers the start, which is noticeable on large 4K files. Instead,
-// a second copy waits at the first frame and takes over just before the active one ends.
+// a second copy waits at the first frame and takes over just before the active one ends, as long
+// as it has buffered enough to play. Otherwise the built-in loop is used for that pass.
 export default function ReelVideo({ src }) {
   const firstRef = useRef(null);
   const secondRef = useRef(null);
@@ -18,10 +22,25 @@ export default function ReelVideo({ src }) {
     const videos = [firstRef.current, secondRef.current];
     let active = 0;
     let switching = false;
+    let standbyLoaded = false;
     let frame;
+    let standbyTimer;
 
     const show = (video, visible) => {
       video.style.opacity = visible ? '1' : '0';
+    };
+
+    const tryPlay = (video) => {
+      if (video.paused && document.visibilityState === 'visible') video.play().catch(() => {});
+    };
+
+    const loadStandby = () => {
+      if (standbyLoaded) return;
+      standbyLoaded = true;
+      const standby = videos[1];
+      standby.preload = 'auto';
+      standby.src = src;
+      standby.load();
     };
 
     const tick = () => {
@@ -29,9 +48,11 @@ export default function ReelVideo({ src }) {
       const next = videos[1 - active];
       const remaining = current.duration - current.currentTime;
 
-      if (!switching && Number.isFinite(remaining) && remaining <= SWITCH_AHEAD) {
+      if (Number.isFinite(remaining) && remaining < 6) loadStandby();
+
+      // HAVE_FUTURE_DATA (3): the standby can start playing without stalling on its first frame.
+      if (!switching && Number.isFinite(remaining) && remaining <= SWITCH_AHEAD && next.readyState >= 3) {
         switching = true;
-        if (next.currentTime > 0.01) next.currentTime = 0;
         next.play().catch(() => {});
         show(next, true);
         show(current, false);
@@ -47,10 +68,36 @@ export default function ReelVideo({ src }) {
       frame = window.requestAnimationFrame(tick);
     };
 
+    const first = videos[0];
+    const onPlaying = () => {
+      window.clearTimeout(standbyTimer);
+      standbyTimer = window.setTimeout(loadStandby, STANDBY_DELAY_MS);
+    };
+    const onCanPlay = () => tryPlay(videos[active]);
+    // Some browsers (for example iOS in Low Power Mode) hold off autoplay until the visitor
+    // interacts with the page, so start playback on the first tap, scroll or key press.
+    const onInteract = () => tryPlay(videos[active]);
+    const onVisible = () => tryPlay(videos[active]);
+    const interactions = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+
+    first.addEventListener('playing', onPlaying, { once: true });
+    first.addEventListener('canplay', onCanPlay);
+    interactions.forEach((type) => window.addEventListener(type, onInteract, { passive: true }));
+    document.addEventListener('visibilitychange', onVisible);
+
     show(videos[1], false);
+    tryPlay(first);
     frame = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(standbyTimer);
+      first.removeEventListener('playing', onPlaying);
+      first.removeEventListener('canplay', onCanPlay);
+      interactions.forEach((type) => window.removeEventListener(type, onInteract));
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, [src]);
 
   return (
     <div className="reel-video">
@@ -68,12 +115,11 @@ export default function ReelVideo({ src }) {
       <video
         ref={secondRef}
         className="reel-layer"
-        src={src}
         style={{ transitionDuration: `${FADE_SECONDS}s`, opacity: 0 }}
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         aria-hidden="true"
       />
     </div>
