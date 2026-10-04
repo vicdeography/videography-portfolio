@@ -11,7 +11,7 @@ const REEL_POSTER = '/reel/reel-poster.jpg';
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="dark-layout">
       <div className="page-shell header-shell">
         <SiteNav />
       </div>
@@ -24,48 +24,50 @@ export default function HomePage() {
         )}
       </section>
 
-      <div className="page-shell">
-        <section id="contact" className="contact-bar">
-          <h2 className="contact-heading">Contact Information</h2>
-          <div className="contact-row">
-            <div className="contact-box">
-              <p>Email</p>
-              <a href="mailto:vicdeography1@gmail.com">
-                vicdeography1<wbr />@gmail.com
-              </a>
+      <div className="dark-page">
+        <div className="page-shell">
+          <section id="contact" className="contact-bar">
+            <h2 className="contact-heading">Contact Information</h2>
+            <div className="contact-row">
+              <div className="contact-box">
+                <p>Email</p>
+                <a href="mailto:vicdeography1@gmail.com">
+                  vicdeography1<wbr />@gmail.com
+                </a>
+              </div>
+              <div className="contact-box">
+                <p>Phone</p>
+                <a href="tel:+15044507511">(504) 450-7511</a>
+              </div>
+              <div className="contact-box">
+                <p>Instagram</p>
+                <a href="https://instagram.com/vicdeography">@vicdeography</a>
+              </div>
+              <div className="contact-box">
+                <p>Based in</p>
+                <span>Chicago, IL</span>
+              </div>
             </div>
-            <div className="contact-box">
-              <p>Phone</p>
-              <a href="tel:+15044507511">(504) 450-7511</a>
-            </div>
-            <div className="contact-box">
-              <p>Instagram</p>
-              <a href="https://instagram.com/vicdeography">@vicdeography</a>
-            </div>
-            <div className="contact-box">
-              <p>Based in</p>
-              <span>Chicago, IL</span>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="content-block about-section">
-          <div className="intro-grid">
-            <div className="about-teaser">
-              <div className="portrait-placeholder">Photo</div>
-              <p>
-                I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
-                shoot brand videos, sports and short films, with a focus on honest storytelling and
-                strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
-              </p>
-            </div>
+          <section className="content-block about-section">
+            <div className="intro-grid">
+              <div className="about-teaser">
+                <div className="portrait-placeholder">Photo</div>
+                <p>
+                  I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
+                  shoot brand videos, sports and short films, with a focus on honest storytelling and
+                  strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
+                </p>
+              </div>
 
-            <div className="get-in-touch">
-              <h2 className="contact-heading">Get in Touch</h2>
-              <ContactForm />
+              <div className="get-in-touch">
+                <h2 className="contact-heading">Get in Touch</h2>
+                <ContactForm />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </main>
   );

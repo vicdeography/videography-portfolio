@@ -90,6 +90,43 @@ a {
   background: rgba(243, 239, 233, 0.04);
 }
 
+.dark-page .contact-box p,
+.dark-page .contact-form label span {
+  color: rgba(243, 239, 233, 0.7);
+}
+
+.dark-page .contact-form input,
+.dark-page .contact-form textarea {
+  border-color: rgba(243, 239, 233, 0.3);
+  background: rgba(243, 239, 233, 0.06);
+  color: #f3efe9;
+}
+
+.dark-page .contact-form input::placeholder,
+.dark-page .contact-form textarea::placeholder {
+  color: rgba(243, 239, 233, 0.4);
+}
+
+.dark-page .contact-form input:focus,
+.dark-page .contact-form textarea:focus {
+  border-color: #f3efe9;
+}
+
+.dark-page .contact-form button {
+  border-color: #f3efe9;
+  background: #f3efe9;
+  color: #000;
+}
+
+.dark-page .contact-form button:hover {
+  background: transparent;
+  color: #f3efe9;
+}
+
+.dark-page .form-status.error {
+  color: #ff8a7a;
+}
+
 .dark-page .card-image {
   background: linear-gradient(135deg, #2a2724, #6f6760, #a79c92);
 }
