@@ -9,7 +9,7 @@ export const MIN_PROJECTS = 4;
 export const projects = {
   sports: [
     {
-      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Club%20Soccer%20vs%20UofI%20264.mov',
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
       title: 'Loyola Club Soccer vs University of Illinois',
       poster: '/projects/luc-soccer-vs-uofi.jpg',
     },
