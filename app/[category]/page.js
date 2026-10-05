@@ -29,9 +29,7 @@ export default function CategoryPage({ params }) {
       <div className="dark-page">
         <div className="page-shell">
           <section className="category-header">
-            <p className="eyebrow">Work</p>
             <h2>{category.title}</h2>
-            <p className="lede">{category.blurb}</p>
           </section>
 
           <section className="content-block projects-block">
