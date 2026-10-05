@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 76px 48px;
+  background-size: 38px 24px;
   color: #f3efe9;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.5;
@@ -106,7 +106,7 @@ a {
 .dark-page {
   flex: 1;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 76px 48px;
+  background-size: 38px 24px;
   color: #f3efe9;
 }
 
