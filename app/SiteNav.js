@@ -10,7 +10,7 @@ export default function SiteNav({ current }) {
   return (
     <header className="site-header">
       <Link href="/" className="brand" aria-label="Victor Pereira-Leite, home">
-        <Image className="wordmark" src="/name-wordmark.png" alt="Victor Pereira-Leite" width={1600} height={121} priority />
+        <Image className="wordmark" src="/name-wordmark-light.png" alt="Victor Pereira-Leite" width={1600} height={121} priority />
         <span className="tagline">Cinematographer - Videographer</span>
       </Link>
       <nav className="site-nav" aria-label="Site">
