@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 38px 24px;
+  background-size: 57px 36px;
   color: #f3efe9;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.5;
@@ -106,7 +106,7 @@ a {
 .dark-page {
   flex: 1;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 38px 24px;
+  background-size: 57px 36px;
   color: #f3efe9;
 }
 
@@ -127,7 +127,8 @@ a {
 .dark-page .contact-form input,
 .dark-page .contact-form textarea {
   border-color: rgba(243, 239, 233, 0.3);
-  background: rgba(243, 239, 233, 0.06);
+  /* Solid fill (the same shade as a 6% off-white tint on black) so the wave pattern doesn't show through. */
+  background: #0f0e0e;
   color: #f3efe9;
 }
 
