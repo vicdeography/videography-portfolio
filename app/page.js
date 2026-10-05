@@ -45,7 +45,7 @@ export default function HomePage() {
               </div>
               <div className="contact-box">
                 <p>Based in</p>
-                <span>Chicago, IL</span>
+                <span>Rogers Park - Chicago, IL</span>
               </div>
             </div>
           </section>
