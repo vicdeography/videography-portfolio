@@ -7,6 +7,15 @@
 export const MIN_PROJECTS = 4;
 
 export const projects = {
+  'brand-videos': [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Lakeside%20BJJ%20Promo.mov',
+      poster: '/projects/lakeside-bjj.jpg',
+      title: 'Lakeside Brazilian Jiu-Jitsu',
+      description:
+        'A promotional short for Lakeside Brazilian Jiu-Jitsu, which offers an introduction to the martial art of BJJ as well as the history of the Lakeside Gym. This video was shot with a Panasonic LUMIX G85 and Rode Wireless GO Microphones.',
+    },
+  ],
   sports: [
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
