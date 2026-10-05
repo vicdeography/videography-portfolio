@@ -429,6 +429,7 @@ a {
 }
 
 .portrait-placeholder {
+  width: 75%;
   aspect-ratio: 3 / 4;
   display: grid;
   place-items: center;
