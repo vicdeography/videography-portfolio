@@ -33,6 +33,7 @@ a {
 
 
 .site-nav {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -49,6 +50,7 @@ a {
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
   color: rgba(243, 239, 233, 0.7);
+  transition: color 0.3s ease;
 }
 
 .nav-break {
@@ -58,7 +60,33 @@ a {
 .site-nav a:hover,
 .site-nav a.active {
   color: #f3efe9;
-  border-bottom-color: #f3efe9;
+}
+
+/* While another item is hovered, the current page's item dims so the bright text follows the underline. */
+.site-nav.is-hovering a.active:not(:hover):not(:focus-visible) {
+  color: rgba(243, 239, 233, 0.7);
+}
+
+/* One shared underline that slides to the hovered item and back to the current page's item. */
+.nav-underline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: #f3efe9;
+  pointer-events: none;
+}
+
+.nav-underline.animate {
+  transition:
+    transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+    width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-underline.animate {
+    transition: none;
+  }
 }
 
 .dark-layout {
