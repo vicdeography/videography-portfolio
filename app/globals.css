@@ -73,7 +73,8 @@ a {
 
 .dark-page {
   flex: 1;
-  background: #000;
+  background: #000 url('/wave-pattern-dark.png') repeat;
+  background-size: 76px 48px;
   color: #f3efe9;
 }
 
