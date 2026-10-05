@@ -62,17 +62,9 @@ a {
   color: #f3efe9;
 }
 
-/* The current page keeps a fixed underline, which fades while another item is hovered. */
-.site-nav a.active {
-  border-bottom-color: #f3efe9;
-  transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-
+/* While another item is hovered, the current page's item dims so the bright text follows the underline. */
 .site-nav.is-hovering a.active:not(:hover):not(:focus-visible) {
   color: rgba(243, 239, 233, 0.7);
-  border-bottom-color: transparent;
 }
 
 /* The hover underline: fades in under the hovered item, slides between items, fades out on leave. */

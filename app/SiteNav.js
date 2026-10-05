@@ -13,7 +13,7 @@ export default function SiteNav({ current }) {
   const activeKey = current ?? 'home';
   const [hoverKey, setHoverKey] = useState(null);
   // A hover underline that slides between hovered items and fades out where it is when the
-  // pointer leaves the menu. The current page keeps its own fixed underline.
+  // pointer leaves the menu.
   const [line, setLine] = useState({ x: 0, y: 0, width: 0, visible: false, slide: false });
   const visibleRef = useRef(false);
 
