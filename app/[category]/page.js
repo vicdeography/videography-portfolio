@@ -34,11 +34,19 @@ export default function CategoryPage({ params }) {
 
           <section className="content-block projects-block">
             <p className="eyebrow">Projects</p>
-            <div className="project-grid">
+            <div className="project-list">
               {projects.map((number) => (
-                <article key={number} className="card">
-                  <div className="card-image">{number}</div>
-                  <h3>Project title</h3>
+                <article key={number} className="project-row">
+                  <div className="project-media" aria-hidden="true" />
+                  <div className="project-text">
+                    <h3>Project Title</h3>
+                    <p>
+                      Placeholder description for this project. It will briefly cover what the
+                      project was, who it was made for and the idea behind it. A sentence or two
+                      can note the role played, the gear used or how it was shot. This text will
+                      be replaced with the real description.
+                    </p>
+                  </div>
                 </article>
               ))}
             </div>
