@@ -299,7 +299,7 @@ a {
   aspect-ratio: 16 / 9;
   max-height: 85vh;
   overflow: hidden;
-  background: #121212;
+  background-color: #121212;
 }
 
 .reel-layer {
