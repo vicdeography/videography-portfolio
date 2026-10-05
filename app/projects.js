@@ -16,6 +16,15 @@ export const projects = {
         'A promotional short for Lakeside Brazilian Jiu-Jitsu, which offers an introduction to the martial art of BJJ as well as the history of the Lakeside Gym. This video was shot with a Panasonic LUMIX G85 and Rode Wireless GO Microphones.',
     },
   ],
+  'short-films': [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/The%20Staring%20Contest%20264.mov',
+      poster: '/projects/the-staring-contest.jpg',
+      title: 'The Staring Contest',
+      description:
+        'When two rivals engage in an intense staring contest, who will come out on top? This film was my one-minute final project for my Cinematography I class. This film was shot with a Canon XA75 and lit with the Lowel Blender 2-Light LED Kit.',
+    },
+  ],
   sports: [
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
