@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ContactForm from './ContactForm';
 import ReelVideo from './ReelVideo';
+import Reveal from './Reveal';
 import SiteNav from './SiteNav';
 
 // The demo reel: a 1080p H.264 MP4 with its index at the front ("fast start") so it can begin
@@ -26,7 +27,7 @@ export default function HomePage() {
 
       <div className="dark-page">
         <div className="page-shell">
-          <section id="contact" className="contact-bar">
+          <Reveal as="section" id="contact" className="contact-bar">
             <h2 className="contact-heading">Contact Information</h2>
             <div className="contact-row">
               <div className="contact-box">
@@ -48,23 +49,23 @@ export default function HomePage() {
                 <span>Rogers Park - Chicago, IL</span>
               </div>
             </div>
-          </section>
+          </Reveal>
 
           <section className="content-block about-section">
             <div className="intro-grid">
-              <div className="about-teaser">
+              <Reveal className="about-teaser">
                 <div className="portrait-placeholder">Photo</div>
                 <p>
                   I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
                   shoot brand videos, sports and short films, with a focus on honest storytelling and
                   strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
                 </p>
-              </div>
+              </Reveal>
 
-              <div className="get-in-touch">
+              <Reveal className="get-in-touch">
                 <h2 className="contact-heading">Get in Touch</h2>
                 <ContactForm />
-              </div>
+              </Reveal>
             </div>
           </section>
         </div>

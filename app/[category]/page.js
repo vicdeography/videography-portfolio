@@ -4,6 +4,7 @@ import SiteNav from '../SiteNav';
 import { categories, getCategory } from '../categories';
 import { getProjects } from '../projects';
 import ProjectVideo from '../ProjectVideo';
+import Reveal from '../Reveal';
 
 export const dynamicParams = false;
 
@@ -38,7 +39,7 @@ export default function CategoryPage({ params }) {
             <p className="eyebrow">Projects</p>
             <div className="project-list">
               {projects.map((project, index) => (
-                <article key={index} className="project-row">
+                <Reveal as="article" key={index} className="project-row">
                   {project.video ? (
                     <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
                   ) : (
@@ -62,7 +63,7 @@ export default function CategoryPage({ params }) {
                       </>
                     )}
                   </div>
-                </article>
+                </Reveal>
               ))}
             </div>
           </section>

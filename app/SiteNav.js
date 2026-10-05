@@ -12,41 +12,35 @@ export default function SiteNav({ current }) {
   const navRef = useRef(null);
   const activeKey = current ?? 'home';
   const [hoverKey, setHoverKey] = useState(null);
-  // The underline slides between items; it only animates once it has been placed the first time.
-  const [line, setLine] = useState({ x: 0, y: 0, width: 0, ready: false, animate: false });
+  // A hover underline that slides between hovered items and fades out where it is when the
+  // pointer leaves the menu. The current page keeps its own fixed underline.
+  const [line, setLine] = useState({ x: 0, y: 0, width: 0, visible: false, slide: false });
+  const visibleRef = useRef(false);
 
-  const place = useCallback(
-    (key, animate) => {
-      const link = navRef.current?.querySelector(`[data-nav-key="${key}"]`);
-      if (!link) return;
-      setLine({
-        x: link.offsetLeft,
-        y: link.offsetTop + link.offsetHeight - 1,
-        width: link.offsetWidth,
-        ready: true,
-        animate,
-      });
-    },
-    [],
-  );
-
-  // The item the underline should sit under right now, kept in a ref for the resize handler.
-  const targetRef = useRef(activeKey);
-  targetRef.current = hoverKey ?? activeKey;
+  const measure = useCallback((key) => {
+    const link = navRef.current?.querySelector(`[data-nav-key="${key}"]`);
+    if (!link) return null;
+    return { x: link.offsetLeft, y: link.offsetTop + link.offsetHeight - 1, width: link.offsetWidth };
+  }, []);
 
   useEffect(() => {
-    place(targetRef.current, line.ready);
-    // line.ready only matters for the very first placement.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hoverKey, activeKey, place]);
+    if (!hoverKey) {
+      visibleRef.current = false;
+      setLine((previous) => ({ ...previous, visible: false }));
+      return;
+    }
+    const box = measure(hoverKey);
+    if (!box) return;
+    // Slide only when moving between items; appearing from nothing happens in place.
+    setLine({ ...box, visible: true, slide: visibleRef.current });
+    visibleRef.current = true;
+  }, [hoverKey, measure]);
 
   useEffect(() => {
-    const onResize = () => place(targetRef.current, false);
+    const onResize = () => setLine((previous) => ({ ...previous, visible: false }));
     window.addEventListener('resize', onResize);
-    // Re-measure once web fonts have loaded, since they change the width of each item.
-    document.fonts?.ready.then(onResize).catch(() => {});
     return () => window.removeEventListener('resize', onResize);
-  }, [place]);
+  }, []);
 
   const item = (key, href, label) => (
     <Link
@@ -82,12 +76,12 @@ export default function SiteNav({ current }) {
         ))}
         {item('about', '/about', 'About Me')}
         <span
-          className={`nav-underline${line.animate ? ' animate' : ''}`}
+          className={`nav-underline${line.slide ? ' slide' : ''}`}
           aria-hidden="true"
           style={{
             width: line.width,
             transform: `translate(${line.x}px, ${line.y}px)`,
-            opacity: line.ready ? 1 : 0,
+            opacity: line.visible ? 1 : 0,
           }}
         />
       </nav>
