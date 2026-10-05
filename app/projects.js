@@ -11,6 +11,8 @@ export const projects = {
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
       title: 'Loyola Club Soccer vs University of Illinois',
+      description:
+        'A two-minute recap video of an intense grudge match between the Loyola University Chicago and the University of Illinois club soccer teams. This video was shot with a Panasonic LUMIX G85 in primarily a run-and-gun style, with a zoom lens used to capture the in-game footage.',
       poster: '/projects/luc-soccer-huddle.jpg',
     },
   ],
