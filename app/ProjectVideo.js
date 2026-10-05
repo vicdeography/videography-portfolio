@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 
 // A project's video box: shows the first frame with "Play" on hover, and opens the video
 // in a centered player over a dimmed page when clicked.
-export default function ProjectVideo({ src, title }) {
+export default function ProjectVideo({ src, poster, title }) {
   const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
   const playerRef = useRef(null);
 
   useEffect(() => {
     if (!open) return undefined;
+    setFailed(false);
     // Start playback from the click; if the browser blocks it, the controls are there to press play.
     playerRef.current?.play().catch(() => {});
     const onKey = (event) => {
@@ -31,7 +33,12 @@ export default function ProjectVideo({ src, title }) {
         onClick={() => setOpen(true)}
         aria-label={title ? `Play ${title}` : 'Play video'}
       >
-        <video src={`${src}#t=0.1`} preload="metadata" muted playsInline tabIndex={-1} />
+        {poster ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={poster} alt="" loading="lazy" />
+        ) : (
+          <video src={`${src}#t=0.1`} preload="metadata" muted playsInline tabIndex={-1} />
+        )}
         <span className="play-label">Play</span>
       </button>
 
@@ -40,15 +47,23 @@ export default function ProjectVideo({ src, title }) {
           <button type="button" className="video-modal-close" aria-label="Close video">
             &times;
           </button>
-          <video
-            ref={playerRef}
-            className="video-modal-player"
-            src={src}
-            controls
-            autoPlay
-            playsInline
-            onClick={(event) => event.stopPropagation()}
-          />
+          {failed ? (
+            <p className="video-modal-error" onClick={(event) => event.stopPropagation()}>
+              Sorry, this video can&rsquo;t play in this browser. Try Safari or Chrome.
+            </p>
+          ) : (
+            <video
+              ref={playerRef}
+              className="video-modal-player"
+              src={src}
+              poster={poster}
+              controls
+              autoPlay
+              playsInline
+              onError={() => setFailed(true)}
+              onClick={(event) => event.stopPropagation()}
+            />
+          )}
         </div>
       )}
     </>

@@ -40,7 +40,7 @@ export default function CategoryPage({ params }) {
               {projects.map((project, index) => (
                 <article key={index} className="project-row">
                   {project.video ? (
-                    <ProjectVideo src={project.video} title={project.title} />
+                    <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
                   ) : (
                     <div className="project-media" aria-hidden="true" />
                   )}

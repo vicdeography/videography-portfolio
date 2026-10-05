@@ -176,6 +176,7 @@ a {
   color: inherit;
 }
 
+.project-video img,
 .project-video video {
   display: block;
   width: 100%;
@@ -224,6 +225,14 @@ a {
   width: min(1200px, 100%, calc(85vh * 16 / 9));
   aspect-ratio: 16 / 9;
   background: #000;
+}
+
+.video-modal-error {
+  max-width: 420px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .video-modal-close {
