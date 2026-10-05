@@ -27,10 +27,13 @@ export default function ProjectVideo({ src, poster, title }) {
 
   return (
     <>
-      <div className="project-media project-video">
+      <div
+        className="project-media project-video"
+        style={poster ? { backgroundImage: `url(${poster})` } : undefined}
+      >
         {poster ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={poster} alt="" loading="lazy" />
+          <img src={poster} alt="" />
         ) : (
           <video src={`${src}#t=0.1`} preload="metadata" muted playsInline tabIndex={-1} />
         )}
