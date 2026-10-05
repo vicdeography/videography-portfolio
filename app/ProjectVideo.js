@@ -27,20 +27,22 @@ export default function ProjectVideo({ src, poster, title }) {
 
   return (
     <>
-      <button
-        type="button"
-        className="project-media project-video"
-        onClick={() => setOpen(true)}
-        aria-label={title ? `Play ${title}` : 'Play video'}
-      >
+      <div className="project-media project-video">
         {poster ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={poster} alt="" loading="lazy" />
         ) : (
           <video src={`${src}#t=0.1`} preload="metadata" muted playsInline tabIndex={-1} />
         )}
-        <span className="play-label">Play</span>
-      </button>
+        <button
+          type="button"
+          className="play-label"
+          onClick={() => setOpen(true)}
+          aria-label={title ? `Play ${title}` : 'Play video'}
+        >
+          Play
+        </button>
+      </div>
 
       {open && (
         <div className="video-modal" role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
