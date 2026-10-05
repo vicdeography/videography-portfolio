@@ -16,6 +16,15 @@ export const projects = {
         'A promotional short for Lakeside Brazilian Jiu-Jitsu, which offers an introduction to the martial art of BJJ as well as the history of the Lakeside Gym. This video was shot with a Panasonic LUMIX G85 and Rode Wireless GO Microphones.',
     },
   ],
+  events: [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Leo%20and%20Friend%20Show.mov',
+      poster: '/projects/leo-and-friends.jpg',
+      title: 'Leo & Friends at Carrollton Station',
+      description:
+        'A short recap video of live music played by Leo & Friends at Carrollton Station, a bar in New Orleans. This video was shot with a Panasonic LUMIX G85 and features original music from lead singer, Leo Oliveira.',
+    },
+  ],
   'short-films': [
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/The%20Staring%20Contest%20264.mov',
