@@ -425,11 +425,14 @@ a {
 
 
 .about-teaser {
+  /* The photo and the text under it share one narrower, centered column so the text
+     never runs wider than the photo. */
+  width: 75%;
+  justify-self: center;
   padding-top: 0;
 }
 
 .portrait-placeholder {
-  width: 75%;
   aspect-ratio: 3 / 4;
   display: grid;
   place-items: center;
