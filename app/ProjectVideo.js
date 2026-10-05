@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 // A project's video box: shows the first frame with "Play" on hover, and opens the video
 // in a centered player over a dimmed page when clicked.
@@ -47,30 +48,33 @@ export default function ProjectVideo({ src, poster, title }) {
         </button>
       </div>
 
-      {open && (
-        <div className="video-modal" role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
-          <button type="button" className="video-modal-close" aria-label="Close video">
-            &times;
-          </button>
-          {failed ? (
-            <p className="video-modal-error" onClick={(event) => event.stopPropagation()}>
-              Sorry, this video can&rsquo;t play in this browser. Try Safari or Chrome.
-            </p>
-          ) : (
-            <video
-              ref={playerRef}
-              className="video-modal-player"
-              src={src}
-              poster={poster}
-              controls
-              autoPlay
-              playsInline
-              onError={() => setFailed(true)}
-              onClick={(event) => event.stopPropagation()}
-            />
-          )}
-        </div>
-      )}
+      {/* Rendered at the end of the page so a fading parent can't shift or clip the player. */}
+      {open &&
+        createPortal(
+          <div className="video-modal" role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
+            <button type="button" className="video-modal-close" aria-label="Close video">
+              &times;
+            </button>
+            {failed ? (
+              <p className="video-modal-error" onClick={(event) => event.stopPropagation()}>
+                Sorry, this video can&rsquo;t play in this browser. Try Safari or Chrome.
+              </p>
+            ) : (
+              <video
+                ref={playerRef}
+                className="video-modal-player"
+                src={src}
+                poster={poster}
+                controls
+                autoPlay
+                playsInline
+                onError={() => setFailed(true)}
+                onClick={(event) => event.stopPropagation()}
+              />
+            )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }

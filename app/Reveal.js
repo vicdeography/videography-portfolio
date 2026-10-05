@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// Fades its content in the first time it scrolls into view. Anything already on screen when the
-// page loads is left alone, and content stays visible if scripts have not run yet.
+// Fades its content in whenever it scrolls into view and back out when it leaves, so it fades in
+// again on the way back. Anything already on screen when the page loads starts visible with no
+// animation, and content stays visible if scripts have not run yet.
 export default function Reveal({ as: Tag = 'div', className = '', children, ...props }) {
   const ref = useRef(null);
   const [state, setState] = useState('static'); // static | hidden | shown
@@ -12,14 +13,14 @@ export default function Reveal({ as: Tag = 'div', className = '', children, ...p
     const element = ref.current;
     if (!element || typeof IntersectionObserver === 'undefined') return undefined;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    if (element.getBoundingClientRect().top < window.innerHeight) return undefined;
 
-    setState('hidden');
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setState('shown');
-        observer.disconnect();
+        if (entry.isIntersecting) {
+          setState((previous) => (previous === 'static' ? 'static' : 'shown'));
+        } else {
+          setState('hidden');
+        }
       },
       { rootMargin: '0px 0px -8% 0px' },
     );
