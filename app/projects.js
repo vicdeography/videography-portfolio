@@ -34,6 +34,15 @@ export const projects = {
         'When two rivals engage in an intense staring contest, who will come out on top? This film was my one-minute final project for my Cinematography I class. This film was shot with a Canon XA75 and lit with the Lowel Blender 2-Light LED Kit.',
     },
   ],
+  miscellaneous: [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Lisbon%20video.mov',
+      poster: '/projects/lisbon-at-dusk.jpg',
+      title: 'Lisbon at Dusk',
+      description:
+        'A short atmospheric video taken on my June 2026 trip to Lisbon, Portugal at sunset.',
+    },
+  ],
   sports: [
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
