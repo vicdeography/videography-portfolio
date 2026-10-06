@@ -15,6 +15,13 @@ export const projects = {
       description:
         'A promotional short for Lakeside Brazilian Jiu-Jitsu, which offers an introduction to the martial art of BJJ as well as the history of the Lakeside Gym. This video was shot with a Panasonic LUMIX G85 and Rode Wireless GO Microphones.',
     },
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/MOW%20Intro%20Video%20for%20site.mov',
+      poster: '/projects/meals-on-wheels.jpg',
+      title: 'Meals on Wheels',
+      description:
+        'A two-minute promotional short for Meals on Wheels Northeastern Illinois, a nonprofit organization that provides food to elderly adults. This video was shot with a Panasonic LUMIX G85, Zoom H6N, Audio-Technica AT835b Shotgun Mic, and Rode Wireless GO Mics.',
+    },
   ],
   events: [
     {

@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 57px 36px;
+  background-size: 71.25px 45px;
   color: #f3efe9;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.5;
@@ -106,7 +106,7 @@ a {
 .dark-page {
   flex: 1;
   background: #000 url('/wave-pattern-dark.png') repeat;
-  background-size: 57px 36px;
+  background-size: 71.25px 45px;
   color: #f3efe9;
 }
 
@@ -194,7 +194,7 @@ a {
 
 .project-media {
   aspect-ratio: 16 / 9;
-  border: 1px solid rgba(243, 239, 233, 0.35);
+  border: 2px solid rgba(243, 239, 233, 0.35);
 }
 
 .project-video {
@@ -203,6 +203,8 @@ a {
   background-color: #000;
   background-size: cover;
   background-position: center;
+  /* Keep the cover image inside the outline instead of showing through the semi-transparent border. */
+  background-clip: padding-box;
 }
 
 .project-video img,
