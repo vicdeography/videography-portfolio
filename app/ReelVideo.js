@@ -78,15 +78,24 @@ export default function ReelVideo({ src, poster }) {
     // interacts with the page, so start playback on the first tap, scroll or key press.
     const onInteract = () => tryPlay(videos[active]);
     const onVisible = () => tryPlay(videos[active]);
-    const interactions = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+    // iOS only counts touchend and click as permission to start playback, so listen for those too.
+    const interactions = ['pointerdown', 'touchstart', 'touchend', 'click', 'scroll', 'keydown'];
 
     first.addEventListener('playing', onPlaying, { once: true });
     first.addEventListener('canplay', onCanPlay);
     interactions.forEach((type) => window.addEventListener(type, onInteract, { passive: true }));
     document.addEventListener('visibilitychange', onVisible);
 
+    // Mobile browsers only autoplay muted video; set it on the elements directly as well as in the
+    // markup so it is in place before the first play attempt.
+    videos.forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+    });
+
     show(videos[1], false);
     tryPlay(first);
+    first.addEventListener('loadedmetadata', onCanPlay);
     frame = window.requestAnimationFrame(tick);
 
     return () => {
@@ -94,6 +103,7 @@ export default function ReelVideo({ src, poster }) {
       window.clearTimeout(standbyTimer);
       first.removeEventListener('playing', onPlaying);
       first.removeEventListener('canplay', onCanPlay);
+      first.removeEventListener('loadedmetadata', onCanPlay);
       interactions.forEach((type) => window.removeEventListener(type, onInteract));
       document.removeEventListener('visibilitychange', onVisible);
     };
@@ -111,6 +121,8 @@ export default function ReelVideo({ src, poster }) {
         muted
         loop
         playsInline
+        disablePictureInPicture
+        disableRemotePlayback
         preload="auto"
       />
       <video
@@ -120,6 +132,8 @@ export default function ReelVideo({ src, poster }) {
         muted
         loop
         playsInline
+        disablePictureInPicture
+        disableRemotePlayback
         preload="none"
         aria-hidden="true"
       />

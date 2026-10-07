@@ -337,6 +337,14 @@ a {
   background-color: #121212;
 }
 
+/* Never show the browser's own big play button over the reel (iOS shows one when it holds off
+   autoplay); the poster frame stays visible until playback starts. */
+.reel-layer::-webkit-media-controls-start-playback-button,
+.reel-layer::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .reel-layer {
   position: absolute;
   inset: 0;
