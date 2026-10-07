@@ -448,6 +448,18 @@ a {
   padding-top: 40px;
 }
 
+/* Desktop only: a short divider between the contact details and the About Me / Get in Touch row. */
+@media (min-width: 761px) {
+  .content-block.about-section::before {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 1px;
+    margin: 0 auto 44px;
+    background: rgba(243, 239, 233, 0.3);
+  }
+}
+
 .contact-heading {
   margin: 0;
   font-size: 1.6rem;
