@@ -840,3 +840,15 @@ a {
     transform: none;
   }
 }
+
+@media (max-width: 600px) {
+  /* Phones: roughly halve the empty space above and below the page title. */
+  .category-header {
+    margin-top: -10px;
+    padding: 0 0 16px;
+  }
+
+  .content-block.projects-block {
+    padding-top: 12px;
+  }
+}
