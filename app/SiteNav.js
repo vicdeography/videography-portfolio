@@ -16,6 +16,9 @@ export default function SiteNav({ current }) {
   // pointer leaves the menu.
   const [line, setLine] = useState({ x: 0, y: 0, width: 0, visible: false, slide: false });
   const visibleRef = useRef(false);
+  // Phones show a menu button instead of the row of links; this is whether its dropdown is open.
+  const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
   const measure = useCallback((key) => {
     const link = navRef.current?.querySelector(`[data-nav-key="${key}"]`);
@@ -37,6 +40,22 @@ export default function SiteNav({ current }) {
   }, [hoverKey, measure]);
 
   useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    const onPointer = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointer);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointer);
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
     const onResize = () => setLine((previous) => ({ ...previous, visible: false }));
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
@@ -56,7 +75,19 @@ export default function SiteNav({ current }) {
   );
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header">
+      <button
+        type="button"
+        className={`menu-button${menuOpen ? ' open' : ''}`}
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
       <Link href="/" className="brand" aria-label="Victor Pereira-Leite, home">
         <Image className="wordmark" src="/name-wordmark-light.png" alt="Victor Pereira-Leite" width={1600} height={121} priority />
         <span className="tagline">Cinematographer - Videographer</span>
@@ -84,6 +115,20 @@ export default function SiteNav({ current }) {
             opacity: line.visible ? 1 : 0,
           }}
         />
+      </nav>
+      <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-label="Site" hidden={!menuOpen}>
+        {[['home', '/', 'Home'], ...categories.map((c) => [c.slug, `/${c.slug}`, c.title]), ['about', '/about', 'About Me']].map(
+          ([key, href, label]) => (
+            <Link
+              key={key}
+              href={href}
+              className={activeKey === key ? 'active' : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </Link>
+          ),
+        )}
       </nav>
     </header>
   );
