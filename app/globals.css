@@ -652,13 +652,13 @@ a {
   margin: 0 auto;
 }
 
-/* A narrower column of text so the lines stay short and easy to read. */
+/* The text column matches the photo's width so each text block is about the photo's size. */
 .about-text {
   justify-self: center;
-  max-width: 400px;
+  width: 75%;
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.85;
   color: rgba(243, 239, 233, 0.85);
 }
 
@@ -678,7 +678,7 @@ a {
   }
 
   .about-text {
-    max-width: none;
+    width: auto;
   }
 }
 
