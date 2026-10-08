@@ -632,7 +632,7 @@ a {
 .about-sections {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 110px;
   margin-top: 12px;
 }
 
@@ -652,32 +652,20 @@ a {
   margin: 0 auto;
 }
 
-.about-text-box {
-  padding: 32px 34px;
-  border: 1px solid rgba(243, 239, 233, 0.25);
-  background: #0f0e0e;
-}
-
-.about-text-box h3 {
-  margin: 0 0 14px;
-  font-size: 1.35rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.25;
-}
-
-.about-text-box p {
+/* A narrower column of text so the lines stay short and easy to read. */
+.about-text {
+  justify-self: center;
+  max-width: 400px;
   margin: 0;
   font-size: 1.05rem;
-  line-height: 1.75;
-  color: rgba(243, 239, 233, 0.8);
+  line-height: 1.8;
+  color: rgba(243, 239, 233, 0.85);
 }
 
 @media (max-width: 760px) {
   /* Phones and small tablets: photo on top, text box underneath, in every row. */
   .about-sections {
-    gap: 48px;
+    gap: 64px;
   }
 
   .about-row {
@@ -689,12 +677,8 @@ a {
     order: 0;
   }
 
-  .about-text-box {
-    padding: 24px 22px;
-  }
-
-  .about-text-box h3 {
-    font-size: 1.15rem;
+  .about-text {
+    max-width: none;
   }
 }
 
