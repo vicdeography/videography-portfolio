@@ -3,14 +3,16 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { categories } from './categories';
 
 // On phones the menu splits into two rows after this category.
 const MOBILE_BREAK_AFTER = 'sports';
 
-export default function SiteNav({ current }) {
+export default function SiteNav() {
   const navRef = useRef(null);
-  const activeKey = current ?? 'home';
+  // The page being viewed: 'home' for /, otherwise the first part of the path (a category slug or 'about').
+  const activeKey = usePathname().split('/')[1] || 'home';
   const [hoverKey, setHoverKey] = useState(null);
   // A hover underline that slides between hovered items and fades out where it is when the
   // pointer leaves the menu.

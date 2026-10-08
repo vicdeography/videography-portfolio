@@ -2,7 +2,6 @@ import Link from 'next/link';
 import ContactForm from './ContactForm';
 import ReelVideo from './ReelVideo';
 import Reveal from './Reveal';
-import SiteNav from './SiteNav';
 
 // The demo reel: a 1080p H.264 MP4 with its index at the front ("fast start") so it can begin
 // playing before it has fully downloaded, plus its first frame to show while it loads.
@@ -13,10 +12,6 @@ const REEL_POSTER = '/reel/reel-poster.jpg';
 export default function HomePage() {
   return (
     <main className="dark-layout">
-      <div className="page-shell header-shell">
-        <SiteNav />
-      </div>
-
       <section className="demo-reel">
         {REEL_URL ? (
           <ReelVideo src={REEL_URL} poster={REEL_POSTER} />

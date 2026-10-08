@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import SiteNav from '../SiteNav';
 import { categories, getCategory } from '../categories';
 import { getProjects } from '../projects';
 import ProjectVideo from '../ProjectVideo';
@@ -25,10 +24,6 @@ export default function CategoryPage({ params }) {
 
   return (
     <main className="dark-layout">
-      <div className="page-shell header-shell">
-        <SiteNav current={category.slug} />
-      </div>
-
       <div className="dark-page">
         <div className="page-shell">
           <section className="category-header">

@@ -1,14 +1,9 @@
-import SiteNav from '../SiteNav';
 
 export const metadata = { title: 'About Me | Vic Deography' };
 
 export default function AboutPage() {
   return (
     <main className="dark-layout">
-      <div className="page-shell header-shell">
-        <SiteNav current="about" />
-      </div>
-
       <div className="dark-page">
         <div className="page-shell">
           <section className="category-header">
