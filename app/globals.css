@@ -407,6 +407,8 @@ a {
 .wordmark {
   width: min(640px, 88vw);
   height: auto;
+  /* Keep the logo's shape even before (or if) the image loads, so the header never jumps. */
+  aspect-ratio: 1600 / 121;
 }
 
 .tagline {

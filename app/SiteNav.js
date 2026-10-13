@@ -91,7 +91,17 @@ export default function SiteNav() {
         <span />
       </button>
       <Link href="/" className="brand" aria-label="Victor Pereira-Leite, home">
-        <Image className="wordmark" src="/name-wordmark-light.png" alt="Victor Pereira-Leite" width={1600} height={121} priority />
+        {/* Served as-is (it is only 35KB) rather than through Vercel's image resizer, so it can't fail
+            to load if that service is unavailable or over its limit. */}
+        <Image
+          className="wordmark"
+          src="/name-wordmark-light.png"
+          alt="Victor Pereira-Leite"
+          width={1600}
+          height={121}
+          priority
+          unoptimized
+        />
         <span className="tagline">Cinematography</span>
       </Link>
       <nav
