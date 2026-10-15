@@ -31,7 +31,8 @@ const sections = [
     key: 'beyond',
     photo: cameraPhoto,
     alt: "Victor's rigged Lumix camera with monitor and microphone in an alley",
-    text: 'Placeholder text for this section. It will share a little about life outside of filmmaking. It can mention hobbies that keep me creative. A sentence or two can cover places I love to travel and what I bring back from them. It can touch on the music, films or photographers that inspire me. Another line can share something people might not expect about me. It can mention what I am excited to work on next. A sentence can share a favorite place I have filmed and why it stuck with me. It can mention the communities and causes I care about. Another line can describe what a perfect day off looks like. It can also mention a skill I am learning right now. A closing line can invite people to reach out and say hello.',
+    text:
+      'My personal camera is the Panasonic LUMIX G85; however, I have used the SONY FX30, Canon XA75, Canon T7i, GoPro Action Camera, and more. I also own both RODE and DJI Wireless and shotgun mics, a K&F Concept ND2-400 Lens Filter, a TORJIM 100w Sofbox lighting kit, and an OSEE Monitor.',
   },
 ];
 
