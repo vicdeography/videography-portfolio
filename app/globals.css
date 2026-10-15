@@ -816,13 +816,13 @@ a {
     letter-spacing: 0.2rem;
   }
 
-  /* Phones: one column, every item starting at the left edge. */
+  /* Phones: one centered column. */
   .contact-row {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: start;
+    justify-items: center;
     gap: 18px;
-    text-align: left;
+    text-align: center;
   }
 
   .contact-row .contact-box {
