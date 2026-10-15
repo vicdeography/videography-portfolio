@@ -3,7 +3,7 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { categories } from './categories';
 import wordmarkImage from '../public/name-wordmark-light.png';
 
@@ -13,7 +13,9 @@ const MOBILE_BREAK_AFTER = 'sports';
 export default function SiteNav() {
   const navRef = useRef(null);
   // The page being viewed: 'home' for /, otherwise the first part of the path (a category slug or 'about').
-  const activeKey = usePathname().split('/')[1] || 'home';
+  const pathname = usePathname();
+  const activeKey = pathname.split('/')[1] || 'home';
+  const router = useRouter();
   const [hoverKey, setHoverKey] = useState(null);
   // A hover underline that slides between hovered items and fades out where it is when the
   // pointer leaves the menu.
@@ -59,6 +61,19 @@ export default function SiteNav() {
       document.removeEventListener('pointerdown', onPointer);
     };
   }, [menuOpen]);
+
+  // Load every page ahead of time. Links are normally preloaded when they scroll into view, which
+  // never happens for the phone menu's links while it is closed, so a tap there had to wait for
+  // the page to download.
+  useEffect(() => {
+    ['/', ...categories.map((c) => `/${c.slug}`), '/about'].forEach((href) => router.prefetch(href));
+  }, [router]);
+
+  // Close the phone menu once the new page is showing, rather than on tap, so the old page is never
+  // briefly uncovered while the new one loads.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const onResize = () => setLine((previous) => ({ ...previous, visible: false }));
@@ -141,7 +156,9 @@ export default function SiteNav() {
               key={key}
               href={href}
               className={activeKey === key ? 'active' : undefined}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                if (key === activeKey) setMenuOpen(false);
+              }}
             >
               {label}
             </Link>
