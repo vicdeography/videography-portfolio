@@ -816,19 +816,17 @@ a {
     letter-spacing: 0.2rem;
   }
 
+  /* Phones: one column, every item starting at the left edge. */
   .contact-row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 16px;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 18px;
+    text-align: left;
   }
 
   .contact-row .contact-box {
     white-space: normal;
-  }
-
-  /* An odd last item sits centered across both columns. */
-  .contact-row .contact-box:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
   }
 
   .contact-box a,
