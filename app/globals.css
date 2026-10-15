@@ -519,9 +519,8 @@ a {
 
 .contact-row {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 24px 32px;
+  gap: 24px clamp(16px, 2vw, 32px);
   margin-top: 28px;
 }
 
@@ -751,7 +750,8 @@ a {
 
 .contact-box a,
 .contact-box span {
-  font-size: 1.5rem;
+  /* Sized to keep all five details on one line, shrinking with the screen. */
+  font-size: clamp(0.9rem, 1.45vw, 1.3rem);
 }
 
 
@@ -770,10 +770,6 @@ a {
     white-space: nowrap;
   }
 
-  .contact-box a,
-  .contact-box span {
-    font-size: 1.2rem;
-  }
 }
 
 @media (max-width: 600px) {
