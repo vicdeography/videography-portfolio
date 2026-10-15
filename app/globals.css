@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #000 url('/wave-pattern-dark.png') repeat;
+  background: #000 url('../public/wave-pattern-dark.png') repeat;
   background-size: 71.25px 45px;
   color: #f3efe9;
   font-family: 'Times New Roman', Times, serif;
@@ -131,7 +131,7 @@ a {
 
 .dark-page {
   flex: 1;
-  background: #000 url('/wave-pattern-dark.png') repeat;
+  background: #000 url('../public/wave-pattern-dark.png') repeat;
   background-size: 71.25px 45px;
   color: #f3efe9;
 }

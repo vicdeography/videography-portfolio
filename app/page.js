@@ -2,12 +2,15 @@ import Link from 'next/link';
 import ContactForm from './ContactForm';
 import ReelVideo from './ReelVideo';
 import Reveal from './Reveal';
+import portraitImage from '../public/about/portrait.jpg';
+import reelPoster from '../public/reel/reel-poster.jpg';
+import reelVideo from '../public/reel/reel-1080.mp4';
 
 // The demo reel: a 1080p H.264 MP4 with its index at the front ("fast start") so it can begin
 // playing before it has fully downloaded, plus its first frame to show while it loads.
 // Leave REEL_URL empty to show the placeholder.
-const REEL_URL = '/reel/reel-1080.mp4';
-const REEL_POSTER = '/reel/reel-poster.jpg';
+const REEL_URL = reelVideo;
+const REEL_POSTER = reelPoster.src;
 
 export default function HomePage() {
   return (
@@ -49,7 +52,7 @@ export default function HomePage() {
           <section className="content-block about-section">
             <div className="intro-grid">
               <Reveal className="about-teaser">
-                <img className="about-portrait" src="/about/portrait.jpg" alt="Victor Pereira-Leite" />
+                <img className="about-portrait" src={portraitImage.src} alt="Victor Pereira-Leite" />
                 <p>
                   I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
                   shoot brand videos, sports and short films, with a focus on honest storytelling and
