@@ -10,8 +10,7 @@ import lucSoccerPoster from '../public/projects/luc-soccer-huddle.jpg';
 //   poster:      cover image shown in the box, saved in public/projects/
 //   title:       project name (leave out to show the video on its own)
 //   description: a few sentences shown under the title
-// Subtabs are topped up with placeholder boxes so each one shows at least MIN_PROJECTS rows.
-export const MIN_PROJECTS = 4;
+// Each subtab shows exactly the projects listed here; add an entry to add a row.
 
 export const projects = {
   'brand-videos': [
@@ -69,9 +68,5 @@ export const projects = {
 };
 
 export function getProjects(slug) {
-  const real = projects[slug] ?? [];
-  const placeholders = Array.from({ length: Math.max(0, MIN_PROJECTS - real.length) }, () => ({
-    placeholder: true,
-  }));
-  return [...real, ...placeholders];
+  return projects[slug] ?? [];
 }

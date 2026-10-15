@@ -41,22 +41,8 @@ export default function CategoryPage({ params }) {
                     <div className="project-media" aria-hidden="true" />
                   )}
                   <div className="project-text">
-                    {project.placeholder ? (
-                      <>
-                        <h3>Project Title</h3>
-                        <p>
-                          Placeholder description for this project. It will briefly cover what the
-                          project was, who it was made for and the idea behind it. A sentence or two
-                          can note the role played, the gear used or how it was shot. This text
-                          will be replaced with the real description.
-                        </p>
-                      </>
-                    ) : (
-                      <>
-                        {project.title && <h3>{project.title}</h3>}
-                        {project.description && <p>{project.description}</p>}
-                      </>
-                    )}
+                    {project.title && <h3>{project.title}</h3>}
+                    {project.description && <p>{project.description}</p>}
                   </div>
                 </Reveal>
               ))}
