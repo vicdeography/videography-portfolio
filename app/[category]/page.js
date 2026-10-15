@@ -50,7 +50,7 @@ export default function CategoryPage({ params }) {
           </section>
 
           <p className="back-link">
-            <Link href="/">&larr; Back to home</Link>
+            <Link href="/">Back to home</Link>
           </p>
         </div>
       </div>

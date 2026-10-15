@@ -335,6 +335,23 @@ a {
 .back-link {
   margin-top: 56px;
   text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+/* Styled like the menu links: grey, brightening on hover, no underline. */
+.back-link a,
+.back-link a:hover {
+  border-bottom: 0;
+  text-decoration: none;
+  color: rgba(243, 239, 233, 0.7);
+  transition: color 0.3s ease;
+}
+
+.back-link a:hover,
+.back-link a:focus-visible {
+  color: #f3efe9;
 }
 
 
