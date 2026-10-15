@@ -54,9 +54,10 @@ export default function HomePage() {
               <Reveal className="about-teaser">
                 <img className="about-portrait" src={portraitImage.src} alt="Victor Pereira-Leite" />
                 <p>
-                  I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
-                  shoot brand videos, sports and short films, with a focus on honest storytelling and
-                  strong visual rhythm. For more details, visit <Link href="/about">About Me</Link>.
+                  My name is Victor Pereira-Leite, and I am a videographer and cinematographer based in
+                  Rogers Park, Chicago. I have been making videos for over fifteen years and can produce
+                  brand videos, sporting events, live events, short films, documentaries, and more. For
+                  more information, visit <Link href="/about">About Me</Link>.
                 </p>
               </Reveal>
 
