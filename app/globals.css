@@ -6,7 +6,7 @@ body {
   margin: 0;
   background: #000 url('../public/wave-pattern-dark.png') repeat;
   background-size: 71.25px 45px;
-  color: #f3efe9;
+  color: #ddd5c3;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.5;
 }
@@ -45,7 +45,7 @@ a {
 .site-nav a {
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
-  color: rgba(243, 239, 233, 0.7);
+  color: rgba(221, 213, 195, 0.7);
   transition: color 0.3s ease;
 }
 
@@ -55,12 +55,12 @@ a {
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: #f3efe9;
+  color: #ddd5c3;
 }
 
 /* While another item is hovered, the current page's item dims so the bright text follows the underline. */
 .site-nav.is-hovering a.active:not(:hover):not(:focus-visible) {
-  color: rgba(243, 239, 233, 0.7);
+  color: rgba(221, 213, 195, 0.7);
 }
 
 /* The hover underline: fades in under the hovered item, slides between items, fades out on leave. */
@@ -69,7 +69,7 @@ a {
   top: 0;
   left: 0;
   height: 1px;
-  background: #f3efe9;
+  background: #ddd5c3;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
@@ -133,21 +133,21 @@ a {
   flex: 1;
   background: #000 url('../public/wave-pattern-dark.png') repeat;
   background-size: 71.25px 45px;
-  color: #f3efe9;
+  color: #ddd5c3;
 }
 
 .dark-page .eyebrow {
-  color: rgba(243, 239, 233, 0.65);
+  color: rgba(221, 213, 195, 0.65);
 }
 
 .dark-page .lede {
-  color: rgba(243, 239, 233, 0.8);
+  color: rgba(221, 213, 195, 0.8);
 }
 
 
 .dark-page .contact-box p,
 .dark-page .contact-form label span {
-  color: rgba(243, 239, 233, 0.7);
+  color: rgba(221, 213, 195, 0.7);
 }
 
 .dark-page .contact-form input,
@@ -155,28 +155,28 @@ a {
   border-color: rgba(243, 239, 233, 0.3);
   /* Solid fill (the same shade as a 6% off-white tint on black) so the wave pattern doesn't show through. */
   background: #0f0e0e;
-  color: #f3efe9;
+  color: #ddd5c3;
 }
 
 .dark-page .contact-form input::placeholder,
 .dark-page .contact-form textarea::placeholder {
-  color: rgba(243, 239, 233, 0.4);
+  color: rgba(221, 213, 195, 0.4);
 }
 
 .dark-page .contact-form input:focus,
 .dark-page .contact-form textarea:focus {
-  border-color: #f3efe9;
+  border-color: #ddd5c3;
 }
 
 .dark-page .contact-form button {
-  border-color: #f3efe9;
-  background: #f3efe9;
+  border-color: #ddd5c3;
+  background: #ddd5c3;
   color: #000;
 }
 
 .dark-page .contact-form button:hover {
   background: transparent;
-  color: #f3efe9;
+  color: #ddd5c3;
 }
 
 .dark-page .form-status.error {
@@ -257,7 +257,7 @@ a {
   -webkit-appearance: none;
   appearance: none;
   background: rgba(0, 0, 0, 0.45);
-  color: #f3efe9;
+  color: #ddd5c3;
   font: inherit;
   font-size: 1.1rem;
   letter-spacing: 0.3em;
@@ -309,7 +309,7 @@ a {
   right: 18px;
   border: 0;
   background: none;
-  color: #f3efe9;
+  color: #ddd5c3;
   font-size: 2.4rem;
   line-height: 1;
   cursor: pointer;
@@ -329,7 +329,7 @@ a {
   margin: 0;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(243, 239, 233, 0.75);
+  color: rgba(221, 213, 195, 0.75);
 }
 
 .back-link {
@@ -345,13 +345,13 @@ a {
 .back-link a:hover {
   border-bottom: 0;
   text-decoration: none;
-  color: rgba(243, 239, 233, 0.7);
+  color: rgba(221, 213, 195, 0.7);
   transition: color 0.3s ease;
 }
 
 .back-link a:hover,
 .back-link a:focus-visible {
-  color: #f3efe9;
+  color: #ddd5c3;
 }
 
 
@@ -429,7 +429,7 @@ a {
 }
 
 .wordmark-text {
-  color: #f3efe9;
+  color: #ddd5c3;
   font-size: clamp(1.5rem, 4vw, 2.6rem);
   letter-spacing: 0.3rem;
   text-transform: uppercase;
@@ -438,7 +438,7 @@ a {
 
 .tagline {
   text-align: center;
-  color: rgba(243, 239, 233, 0.55);
+  color: rgba(221, 213, 195, 0.55);
   font-size: 0.85rem;
   letter-spacing: 0.22rem;
   text-transform: uppercase;
@@ -473,7 +473,7 @@ a {
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #121212, #8a817a, rgba(255, 255, 255, 0.35));
-  color: white;
+  color: #ddd5c3;
   letter-spacing: 0.14rem;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -552,7 +552,7 @@ a {
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #121212, #8a817a, rgba(255, 255, 255, 0.35));
-  color: white;
+  color: #ddd5c3;
   font-size: 0.8rem;
   letter-spacing: 0.14rem;
   text-transform: uppercase;
@@ -623,7 +623,7 @@ a {
   border: 1px solid #121212;
   border-radius: 0;
   background: #121212;
-  color: #f3efe9;
+  color: #ddd5c3;
   font: inherit;
   letter-spacing: 0.18rem;
   text-transform: uppercase;
@@ -695,7 +695,7 @@ a {
   margin: 0;
   font-size: 1.1rem;
   line-height: 1.85;
-  color: rgba(243, 239, 233, 0.85);
+  color: rgba(221, 213, 195, 0.85);
 }
 
 @media (max-width: 760px) {
@@ -893,7 +893,7 @@ a {
   .menu-button span {
     display: block;
     height: 1.5px;
-    background: #f3efe9;
+    background: #ddd5c3;
     transition:
       transform 0.25s ease,
       opacity 0.25s ease;
@@ -935,7 +935,7 @@ a {
   .mobile-menu a {
     padding: 12px 0;
     border-bottom: 1px solid rgba(243, 239, 233, 0.08);
-    color: rgba(243, 239, 233, 0.7);
+    color: rgba(221, 213, 195, 0.7);
   }
 
   .mobile-menu a:last-child {
@@ -943,7 +943,7 @@ a {
   }
 
   .mobile-menu a.active {
-    color: #f3efe9;
+    color: #ddd5c3;
   }
 }
 
