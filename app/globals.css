@@ -533,6 +533,14 @@ a {
   text-transform: uppercase;
 }
 
+.about-portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
 .about-teaser p {
   margin: 20px 0 0;
   font-size: 1.05rem;

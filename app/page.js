@@ -49,7 +49,7 @@ export default function HomePage() {
           <section className="content-block about-section">
             <div className="intro-grid">
               <Reveal className="about-teaser">
-                <div className="portrait-placeholder">Photo</div>
+                <img className="about-portrait" src="/about/portrait.jpg" alt="Victor Pereira-Leite" />
                 <p>
                   I&rsquo;m Victor Pereira-Leite, a cinematographer and videographer based in Chicago. I
                   shoot brand videos, sports and short films, with a focus on honest storytelling and
