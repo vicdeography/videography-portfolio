@@ -683,8 +683,10 @@ a {
   order: 2;
 }
 
-.about-photo-column .portrait-placeholder {
+.about-photo-column .about-photo {
+  display: block;
   width: 75%;
+  height: auto;
   margin: 0 auto;
 }
 
