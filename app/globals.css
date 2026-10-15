@@ -970,3 +970,10 @@ a {
     padding-top: 12px;
   }
 }
+
+/* Phones: crop the reel to 4:3 (trimming the sides evenly) so it fills more of the narrow screen. */
+@media (max-width: 600px) {
+  .reel-video {
+    aspect-ratio: 4 / 3;
+  }
+}
