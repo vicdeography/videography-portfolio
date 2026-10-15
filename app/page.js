@@ -43,6 +43,10 @@ export default function HomePage() {
                 <a href="https://instagram.com/vicdeography">@vicdeography</a>
               </div>
               <div className="contact-box">
+                <p>LinkedIn</p>
+                <a href="https://www.linkedin.com/in/victor-pereira-leite-8055542a4/">Victor Pereira-Leite</a>
+              </div>
+              <div className="contact-box">
                 <p>Based in</p>
                 <span>Rogers Park - Chicago, IL</span>
               </div>

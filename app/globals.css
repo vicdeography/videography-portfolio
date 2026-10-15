@@ -503,6 +503,7 @@ a {
 
 .contact-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 24px 32px;
   margin-top: 28px;
@@ -811,6 +812,11 @@ a {
 
   .contact-row .contact-box {
     white-space: normal;
+  }
+
+  /* An odd last item sits centered across both columns. */
+  .contact-row .contact-box:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
   .contact-box a,
