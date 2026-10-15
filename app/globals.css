@@ -411,6 +411,14 @@ a {
   aspect-ratio: 1600 / 121;
 }
 
+.wordmark-text {
+  color: #f3efe9;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .tagline {
   text-align: center;
   color: rgba(243, 239, 233, 0.55);

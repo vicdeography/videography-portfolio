@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { categories } from './categories';
+import wordmarkImage from '../public/name-wordmark-light.png';
 
 // On phones the menu splits into two rows after this category.
 const MOBILE_BREAK_AFTER = 'sports';
@@ -21,6 +22,8 @@ export default function SiteNav() {
   // Phones show a menu button instead of the row of links; this is whether its dropdown is open.
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  // If the logo image ever fails to load, show the name as text instead of a broken-image box.
+  const [wordmarkFailed, setWordmarkFailed] = useState(false);
 
   const measure = useCallback((key) => {
     const link = navRef.current?.querySelector(`[data-nav-key="${key}"]`);
@@ -91,17 +94,20 @@ export default function SiteNav() {
         <span />
       </button>
       <Link href="/" className="brand" aria-label="Victor Pereira-Leite, home">
-        {/* Served as-is (it is only 35KB) rather than through Vercel's image resizer, so it can't fail
-            to load if that service is unavailable or over its limit. */}
-        <Image
-          className="wordmark"
-          src="/name-wordmark-light.png"
-          alt="Victor Pereira-Leite"
-          width={1600}
-          height={121}
-          priority
-          unoptimized
-        />
+        {/* Bundled with the site's own static files (like its CSS and scripts) and served as-is rather
+            than through Vercel's image resizer. */}
+        {wordmarkFailed ? (
+          <span className="wordmark-text">Victor Pereira-Leite</span>
+        ) : (
+          <Image
+            className="wordmark"
+            src={wordmarkImage}
+            alt="Victor Pereira-Leite"
+            priority
+            unoptimized
+            onError={() => setWordmarkFailed(true)}
+          />
+        )}
         <span className="tagline">Cinematography</span>
       </Link>
       <nav
