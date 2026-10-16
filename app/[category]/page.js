@@ -13,7 +13,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const category = getCategory(params.category);
-  return { title: `${category.title} | Vic Deography` };
+  return { title: `${category.title} | Victor Pereira-Leite` };
 }
 
 export default function CategoryPage({ params }) {

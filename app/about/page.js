@@ -4,7 +4,7 @@ import shootingPhoto from '../../public/about/about-2-shooting.jpg';
 import newspaperPhoto from '../../public/about/about-3-newspaper.jpg';
 import cameraPhoto from '../../public/about/about-4-camera.jpg';
 
-export const metadata = { title: 'About Me | Vic Deography' };
+export const metadata = { title: 'About Me | Victor Pereira-Leite' };
 
 // Each section pairs a photo with a short block of text. The photo switches sides from one
 // section to the next. Replace the placeholder text with the real text.

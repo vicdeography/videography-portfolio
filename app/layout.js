@@ -3,8 +3,9 @@ import PageTransitions from './PageTransitions';
 import SiteNav from './SiteNav';
 
 export const metadata = {
-  title: 'Vic Deography | Cinematography Portfolio',
-  description: 'Rough draft portfolio website for videography and cinematography work.',
+  title: 'Victor Pereira-Leite | Cinematography - Videography',
+  description:
+    'Portfolio of Victor Pereira-Leite, a Chicago-based videographer and cinematographer creating brand videos, sports, events, short films and more.',
 };
 
 export default function RootLayout({ children }) {
