@@ -20,7 +20,8 @@ const sections = [
     key: 'start',
     photo: shootingPhoto,
     alt: 'Victor taking a photo with his camera above a Chicago street',
-    text: 'Placeholder text for this section. It will tell the story of the first projects I picked up a camera for. It can describe the first camera I owned and what I learned from it. A sentence or two can mention the people, classes or moments that shaped how I shoot. It can share an early project that taught me something important. Another line can cover how my style has grown since then. It can mention the jump from personal projects to working with clients. A sentence can describe the first time someone paid me to film something. It can touch on the mistakes that taught me the most. Another line can mention the gear and techniques I picked up along the way. It can also name a project I am especially proud of. A final line can bring the story up to where I am today.',
+    text:
+      "Throughout my four years as an undergraduate at Loyola, I have had many different media experiences. I have worked in the School of Communication’s Technology Rental Lab, managing camera gear, audio gear, lighting gear, and more to lend out to students. I have also worked for Loyola Athletics for both Men’s and Women’s Basketball and Volleyball as a video board operator. During my time in high school, I was a part of student council. I was responsible for producing promotional videos for the student body and working on logistics and live coordination of pep rallies. My combination of soft skills, camera knowledge, and adaptability on-the-fly, make me well equipped to handle many different types of shoots.",
   },
   {
     key: 'approach',
