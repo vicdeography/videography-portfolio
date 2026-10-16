@@ -12,9 +12,34 @@ import reelVideo from '../public/reel/reel-1080.mp4';
 const REEL_URL = reelVideo;
 const REEL_POSTER = reelPoster.src;
 
+// Tells search engines who the site belongs to, so it can show up when someone searches the name.
+const STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Vicdeography',
+      alternateName: 'Victor Pereira-Leite',
+      url: 'https://www.vicdeography.com/',
+    },
+    {
+      '@type': 'Person',
+      name: 'Victor Pereira-Leite',
+      jobTitle: 'Videographer and Cinematographer',
+      url: 'https://www.vicdeography.com/',
+      address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL' },
+      sameAs: [
+        'https://www.instagram.com/vicdeography/',
+        'https://www.linkedin.com/in/victor-pereira-leite-8055542a4/',
+      ],
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <main className="dark-layout">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }} />
       <section className="demo-reel">
         {REEL_URL ? (
           <ReelVideo src={REEL_URL} poster={REEL_POSTER} />
