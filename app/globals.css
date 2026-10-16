@@ -401,10 +401,19 @@ a {
 
 /* Never show the browser's own big play button over the reel (iOS shows one when it holds off
    autoplay); the poster frame stays visible until playback starts. */
-.reel-layer::-webkit-media-controls-start-playback-button,
-.reel-layer::-webkit-media-controls {
+.reel-layer::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;
+}
+
+/* Kept as separate rules: a browser that doesn't recognise one of these would otherwise ignore
+   all of them together. */
+.reel-layer::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+}
+
+.reel-layer::-webkit-media-controls {
+  display: none !important;
 }
 
 .reel-layer {

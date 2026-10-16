@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // How long (in seconds) the end of the reel crossfades into the start. 0 is a hard cut.
 const FADE_SECONDS = 0;
@@ -14,9 +14,19 @@ const STANDBY_DELAY_MS = 4000;
 // while it seeks back and re-buffers the start, which is noticeable on large 4K files. Instead,
 // a second copy waits at the first frame and takes over just before the active one ends, as long
 // as it has buffered enough to play. Otherwise the built-in loop is used for that pass.
+// Safari, and every browser on iPhone (they all run on Safari's engine), can play an MP4 inside an
+// image tag. It plays silently and loops like a GIF, and unlike a video it is never held back by
+// Low Power Mode or by the in-app browsers of Instagram, Messages and similar apps.
+function canPlayMp4AsImage() {
+  const ua = navigator.userAgent;
+  return /AppleWebKit/.test(ua) && !/Chrome\/|Chromium|Edg\/|Android/.test(ua);
+}
+
 export default function ReelVideo({ src, poster }) {
   const firstRef = useRef(null);
   const secondRef = useRef(null);
+  // Set when the browser refuses to start the video by itself; the reel then plays as an image.
+  const [asImage, setAsImage] = useState(false);
 
   useEffect(() => {
     const videos = [firstRef.current, secondRef.current];
@@ -94,7 +104,14 @@ export default function ReelVideo({ src, poster }) {
     });
 
     show(videos[1], false);
-    tryPlay(first);
+    // If the browser blocks the video from starting on its own (which is what shows the play
+    // button), switch to the image version where that is supported.
+    first.play().catch((error) => {
+      if (error && error.name === 'NotAllowedError' && canPlayMp4AsImage()) {
+        videos.forEach((video) => video.pause());
+        setAsImage(true);
+      }
+    });
     first.addEventListener('loadedmetadata', onCanPlay);
     frame = window.requestAnimationFrame(tick);
 
@@ -137,6 +154,10 @@ export default function ReelVideo({ src, poster }) {
         preload="none"
         aria-hidden="true"
       />
+      {asImage && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="reel-layer" src={src} alt="" aria-hidden="true" />
+      )}
     </div>
   );
 }
