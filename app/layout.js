@@ -3,7 +3,7 @@ import PageTransitions from './PageTransitions';
 import SiteNav from './SiteNav';
 
 export const metadata = {
-  title: 'Victor Pereira-Leite | Cinematography - Videography',
+  title: 'Vicdeography',
   description:
     'Portfolio of Victor Pereira-Leite, a Chicago-based videographer and cinematographer creating brand videos, sports, events, short films and more.',
 };
