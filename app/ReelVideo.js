@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // How long (in seconds) the end of the reel crossfades into the start. 0 is a hard cut.
 const FADE_SECONDS = 0;
@@ -14,9 +14,19 @@ const STANDBY_DELAY_MS = 4000;
 // while it seeks back and re-buffers the start, which is noticeable on large 4K files. Instead,
 // a second copy waits at the first frame and takes over just before the active one ends, as long
 // as it has buffered enough to play. Otherwise the built-in loop is used for that pass.
+// Safari, and every browser on iPhone (they all run on Safari's engine), can play an MP4 inside an
+// image tag. It plays silently and loops like a GIF, and unlike a video it is never held back by
+// Low Power Mode or by the in-app browsers of Instagram, Messages and similar apps.
+function canPlayMp4AsImage() {
+  const ua = navigator.userAgent;
+  return /AppleWebKit/.test(ua) && !/Chrome\/|Chromium|Edg\/|Android/.test(ua);
+}
+
 export default function ReelVideo({ src, poster }) {
   const firstRef = useRef(null);
   const secondRef = useRef(null);
+  // Set when the browser refuses to start the video by itself; the reel then plays as an image.
+  const [asImage, setAsImage] = useState(false);
 
   useEffect(() => {
     const videos = [firstRef.current, secondRef.current];
@@ -25,12 +35,15 @@ export default function ReelVideo({ src, poster }) {
     let standbyLoaded = false;
     let frame;
     let standbyTimer;
+    // Set once the reel has switched to playing as an image, after which the videos stay stopped.
+    let blocked = false;
 
     const show = (video, visible) => {
       video.style.opacity = visible ? '1' : '0';
     };
 
     const tryPlay = (video) => {
+      if (blocked) return;
       if (video.paused && document.visibilityState === 'visible') video.play().catch(() => {});
     };
 
@@ -94,11 +107,46 @@ export default function ReelVideo({ src, poster }) {
     });
 
     show(videos[1], false);
-    tryPlay(first);
+
+    // The video stays hidden (the poster shows behind it) until it is actually playing, so the
+    // phone's own play button, which appears on a video that hasn't started, is never visible.
+    const onFirstPlaying = () => {
+      if (!blocked) show(first, true);
+    };
+    first.addEventListener('playing', onFirstPlaying);
+    if (!first.paused && first.readyState >= 3) show(first, true);
+
+    // If the browser won't start the video by itself, play the reel as an image instead where
+    // that is supported. That is the case when play() is refused outright, when the video has
+    // fully loaded its start but is still sitting paused, or when it still hasn't started after a
+    // few seconds.
+    const switchToImage = () => {
+      if (blocked || !canPlayMp4AsImage()) return;
+      blocked = true;
+      videos.forEach((video) => {
+        video.pause();
+        show(video, false);
+      });
+      setAsImage(true);
+    };
+    first.play().catch((error) => {
+      if (error && error.name === 'NotAllowedError') switchToImage();
+    });
+    const startedAt = Date.now();
+    const watchdog = window.setInterval(() => {
+      if (!first.paused || Date.now() - startedAt > 15000) {
+        window.clearInterval(watchdog);
+      } else if ((first.readyState >= 4 && Date.now() - startedAt > 1000) || Date.now() - startedAt > 4000) {
+        window.clearInterval(watchdog);
+        switchToImage();
+      }
+    }, 250);
     first.addEventListener('loadedmetadata', onCanPlay);
     frame = window.requestAnimationFrame(tick);
 
     return () => {
+      window.clearInterval(watchdog);
+      first.removeEventListener('playing', onFirstPlaying);
       window.cancelAnimationFrame(frame);
       window.clearTimeout(standbyTimer);
       first.removeEventListener('playing', onPlaying);
@@ -116,7 +164,7 @@ export default function ReelVideo({ src, poster }) {
         className="reel-layer"
         src={src}
         poster={poster}
-        style={{ transitionDuration: `${FADE_SECONDS}s` }}
+        style={{ transitionDuration: `${FADE_SECONDS}s`, opacity: 0 }}
         autoPlay
         muted
         loop
@@ -137,6 +185,10 @@ export default function ReelVideo({ src, poster }) {
         preload="none"
         aria-hidden="true"
       />
+      {asImage && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="reel-layer" src={src} alt="" aria-hidden="true" />
+      )}
     </div>
   );
 }
