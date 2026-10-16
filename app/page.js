@@ -40,11 +40,19 @@ export default function HomePage() {
               </div>
               <div className="contact-box">
                 <p>Instagram</p>
-                <a href="https://instagram.com/vicdeography">@vicdeography</a>
+                <a href="https://www.instagram.com/vicdeography/" target="_blank" rel="noopener noreferrer">
+                  @vicdeography
+                </a>
               </div>
               <div className="contact-box">
                 <p>LinkedIn</p>
-                <a href="https://www.linkedin.com/in/victor-pereira-leite-8055542a4/">Victor Pereira-Leite</a>
+                <a
+                  href="https://www.linkedin.com/in/victor-pereira-leite-8055542a4/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Victor Pereira-Leite
+                </a>
               </div>
               <div className="contact-box">
                 <p>Based in</p>
