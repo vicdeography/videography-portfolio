@@ -9,7 +9,7 @@ const DESCRIPTION = 'Victor Pereira-Leite\u2019s Video Portfolio';
 // from icon.png, apple-icon.png and opengraph-image.png in this folder.
 export const metadata = {
   metadataBase: new URL('https://www.vicdeography.com'),
-  title: 'Vicdeography',
+  title: 'Vicdeography | Victor Pereira-Leite',
   description: DESCRIPTION,
   openGraph: {
     title: 'Vicdeography',
