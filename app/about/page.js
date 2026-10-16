@@ -27,7 +27,8 @@ const sections = [
     key: 'approach',
     photo: newspaperPhoto,
     alt: 'School newspaper feature naming Victor Pereira-Leite Blue Jay of the Month',
-    text: 'Placeholder text for this section. It will describe how I work with clients from the first conversation to the final cut. It can explain how I learn what a client wants to say and who they want to reach. A sentence can cover how I plan a shoot and scout locations. It can describe how I like to light and frame a scene. Another line can cover how I keep things relaxed and natural on set. It can mention how I handle editing, color and sound. A sentence here can talk about keeping clients involved along the way. It can share how I adapt to tight timelines and changing plans. A line can describe how I make people comfortable on camera. Another sentence can explain how I deliver files and versions for different platforms. It can end with what clients can expect when they work with me.',
+    text:
+      "Outside of school-related work, I work as a cameraman for the Nice & Cozy Podcast, which is a one-of-a kind mobile podcast that blends casual conversation with personal reflection throughout the city of Chicago. I am also working as a director of photography and editor for multiple short-films and documentaries set to come out in mid-2027. As of October 2026, I have worked with the following companies, brands, and artists: Nice & Cozy Podcast, Reckless Records, Chicago Music Exchange, Meals on Wheels Northeastern Illinois, Lakeside Brazilian Jiu-Jitsu, Anti-Cruelty Animal Shelter, TrafficTech, NEEQ, J.Onyx, Leo & Friends, Osagiemuse, and others.",
   },
   {
     key: 'beyond',
