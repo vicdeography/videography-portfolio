@@ -35,7 +35,7 @@ const sections = [
     photo: cameraPhoto,
     alt: "Victor's rigged Lumix camera with monitor and microphone in an alley",
     text:
-      'My personal camera is the Panasonic LUMIX G85; however, I have used the SONY FX30, Canon XA75, Canon T7i, GoPro Action Camera, and more. I also own both RODE and DJI Wireless and shotgun mics, a K&F Concept ND2-400 Lens Filter, a TORJIM 100w Sofbox lighting kit, and an OSEE Monitor.',
+      'My personal camera is the Panasonic LUMIX G85; however, I have used the SONY FX30, Canon XA75, Canon T7i, GoPro Action Camera, and more. I also own both RODE and DJI Wireless and shotgun mics, a K&F Concept ND2-400 Lens Filter, a TORJIM 100w Sofbox lighting kit, and an OSEE Monitor. I am proficient in both Final Cut Pro and CapCut.',
   },
 ];
 
