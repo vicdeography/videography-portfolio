@@ -13,7 +13,8 @@ const sections = [
     key: 'intro',
     photo: rigPhoto,
     alt: 'Victor holding a rigged camera while filming on a city sidewalk',
-    text: 'Placeholder text for this section. It will introduce who I am and where I am based. A sentence or two can cover what drew me to filmmaking in the first place. It can also mention the kind of stories I enjoy telling the most. Another line can describe the feeling I chase when I am behind the camera. It can touch on the places and people that inspire my work. A sentence here can share what I value in every project I take on. A line here can mention the kinds of clients and communities I love working with. It can share how growing up shaped the way I see the world through a lens. Another sentence can explain why I believe every person and place has a story worth telling. It can close with what I hope people feel when they watch my work.',
+    text:
+      "My name is Victor Pereira-Leite, and I am a videographer and cinematographer from New Orleans currently living in Chicago since 2023. I am currently in my senior year of college at Loyola University Chicago, majoring in Film/Digital Media and minoring in Political Science. When I was six years old, I stole my Mom’s old camcorder to film videos of mock-documentaries with plastic dinosaur toys laying around the house. Ever since then, I haven’t looked back. Being behind the camera has been a passion of mine for as long as I can remember, no matter the type of video. Whether it be big sporting events, small gatherings, or anything in between, I always want to make moments live forever in the best form possible.",
   },
   {
     key: 'start',
