@@ -1028,11 +1028,11 @@ a {
 
   .contact-row {
     margin-top: 40px;
-    gap: 26px;
+    gap: 34px;
   }
 
-  /* A little more space between each label (e.g. LinkedIn) and its detail. */
+  /* Each label (e.g. LinkedIn) sits close to its detail; the pairs are spaced further apart. */
   .contact-box p {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 }
