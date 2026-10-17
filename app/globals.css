@@ -851,9 +851,10 @@ a {
     white-space: normal;
   }
 
+  /* Larger on phones, capped so the longest line (the email) still fits the screen. */
   .contact-box a,
   .contact-box span {
-    font-size: 0.95rem;
+    font-size: min(1.425rem, 5.7vw);
   }
 }
 
@@ -1015,5 +1016,23 @@ a {
 @media (max-width: 600px) {
   .reel-video {
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* Phones: a little more room around the Contact Information heading, above it (below the reel)
+   and between it and the first detail. */
+@media (max-width: 600px) {
+  .contact-bar {
+    padding-top: 28px;
+  }
+
+  .contact-row {
+    margin-top: 40px;
+    gap: 34px;
+  }
+
+  /* Each label (e.g. LinkedIn) sits close to its detail; the pairs are spaced further apart. */
+  .contact-box p {
+    margin-bottom: 8px;
   }
 }
