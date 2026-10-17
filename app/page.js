@@ -88,6 +88,11 @@ export default function HomePage() {
 
           <section className="content-block about-section">
             <div className="intro-grid">
+              <Reveal className="get-in-touch">
+                <h2 className="contact-heading">Get in Touch</h2>
+                <ContactForm />
+              </Reveal>
+
               <Reveal className="about-teaser">
                 <img className="about-portrait" src={portraitImage.src} alt="Victor Pereira-Leite" />
                 <p>
@@ -96,11 +101,6 @@ export default function HomePage() {
                   brand videos, sporting events, live events, short films, documentaries, and more. For
                   more information, visit <Link href="/about">About Me</Link>.
                 </p>
-              </Reveal>
-
-              <Reveal className="get-in-touch">
-                <h2 className="contact-heading">Get in Touch</h2>
-                <ContactForm />
               </Reveal>
             </div>
           </section>
