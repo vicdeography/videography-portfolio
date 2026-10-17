@@ -1018,3 +1018,15 @@ a {
     aspect-ratio: 4 / 3;
   }
 }
+
+/* Phones: a little more room around the Contact Information heading, above it (below the reel)
+   and between it and the first detail. */
+@media (max-width: 600px) {
+  .contact-bar {
+    padding-top: 28px;
+  }
+
+  .contact-row {
+    margin-top: 40px;
+  }
+}
