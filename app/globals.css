@@ -851,10 +851,10 @@ a {
     white-space: normal;
   }
 
-  /* Twice the earlier phone size, capped so the longest line (the email) still fits the screen. */
+  /* Larger on phones, capped so the longest line (the email) still fits the screen. */
   .contact-box a,
   .contact-box span {
-    font-size: min(1.9rem, 7.6vw);
+    font-size: min(1.425rem, 5.7vw);
   }
 }
 
