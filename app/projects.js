@@ -5,6 +5,10 @@ import staringContestPoster from '../public/projects/the-staring-contest.jpg';
 import lisbonAtDuskPoster from '../public/projects/lisbon-at-dusk.jpg';
 import lucSoccerPoster from '../public/projects/luc-soccer-huddle.jpg';
 import loyolaWcsPoster from '../public/projects/loyola-wcs-vs-northwestern.jpg';
+import takedaPoster from '../public/projects/takeda-impact-deliveries.jpg';
+import phiSigPoster from '../public/projects/phi-sigma-sigma-recruitment.jpg';
+import loyolaMcsNorthwesternPoster from '../public/projects/loyola-mcs-vs-northwestern.jpg';
+import loyolaMcsUChicagoPoster from '../public/projects/loyola-mcs-vs-uchicago.jpg';
 
 // Real projects for each subtab, in display order. Each one can have:
 //   video:       URL of the video file (an MP4 or H.264 .mov in the public Vercel Blob store)
@@ -15,6 +19,16 @@ import loyolaWcsPoster from '../public/projects/loyola-wcs-vs-northwestern.jpg';
 
 export const projects = {
   'brand-videos': [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Takeda%20Video%20h264.mov',
+      poster: takedaPoster.src,
+      title: 'Takeda Impact Deliveries',
+    },
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Phi%20Sig%20Recruitment%20Vid%20h264.mov',
+      poster: phiSigPoster.src,
+      title: 'Phi Sigma Sigma 2027 Recruitment Video',
+    },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Lakeside%20BJJ%20Promo.mov',
       poster: lakesideBjjPoster.src,
@@ -58,6 +72,16 @@ export const projects = {
     },
   ],
   sports: [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Mens%20Club%20Soccer%20vs%20Nwestern%20h264.mov',
+      poster: loyolaMcsNorthwesternPoster.src,
+      title: "Loyola Men's Club Soccer vs Northwestern University",
+    },
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UChicago%20h264.mov',
+      poster: loyolaMcsUChicagoPoster.src,
+      title: "Loyola Men's Club Soccer vs University of Chicago",
+    },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/WCS%20vs%20Nwestern%20h264.mov',
       poster: loyolaWcsPoster.src,
