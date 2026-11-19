@@ -351,6 +351,24 @@ a {
   color: rgba(221, 213, 195, 0.75);
 }
 
+/* Subtabs with more than one project: two videos per row, title underneath each. */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  row-gap: 48px;
+}
+
+.project-grid .project-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.project-grid .project-text h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
 .back-link {
   margin-top: 56px;
   text-align: center;
@@ -872,6 +890,11 @@ a {
   .project-row {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
   }
 
   .project-text h3 {

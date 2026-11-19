@@ -32,7 +32,8 @@ export default function CategoryPage({ params }) {
 
           <section className="content-block projects-block">
             <p className="eyebrow">Projects</p>
-            <div className="project-list">
+            {/* Two or more projects sit side by side in a grid, each with its title underneath. */}
+            <div className={projects.length > 1 ? 'project-list project-grid' : 'project-list'}>
               {projects.map((project, index) => (
                 <Reveal as="article" key={index} className="project-row">
                   {project.video ? (
