@@ -1,20 +1,19 @@
 'use client';
 
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { categories } from './categories';
 import wordmarkImage from '../public/name-wordmark-light.png';
 
-// On phones the menu splits into two rows after this category.
-const MOBILE_BREAK_AFTER = 'sports';
-
 export default function SiteNav() {
   const navRef = useRef(null);
   // The page being viewed: 'home' for /, otherwise the first part of the path (a category slug or 'about').
   const pathname = usePathname();
   const activeKey = pathname.split('/')[1] || 'home';
+  // The subtabs grouped under "Services" in the desktop menu.
+  const onServicePage = categories.some((category) => category.slug === activeKey);
   const router = useRouter();
   const [hoverKey, setHoverKey] = useState(null);
   // A hover underline that slides between hovered items and fades out where it is when the
@@ -28,9 +27,12 @@ export default function SiteNav() {
   const [wordmarkFailed, setWordmarkFailed] = useState(false);
 
   const measure = useCallback((key) => {
-    const link = navRef.current?.querySelector(`[data-nav-key="${key}"]`);
+    const nav = navRef.current;
+    const link = nav?.querySelector(`[data-nav-key="${key}"]`);
     if (!link) return null;
-    return { x: link.offsetLeft, y: link.offsetTop + link.offsetHeight - 1, width: link.offsetWidth };
+    const navBox = nav.getBoundingClientRect();
+    const box = link.getBoundingClientRect();
+    return { x: box.left - navBox.left, y: box.bottom - navBox.top - 1, width: box.width };
   }, []);
 
   useEffect(() => {
@@ -132,12 +134,32 @@ export default function SiteNav() {
         onMouseLeave={() => setHoverKey(null)}
       >
         {item('home', '/', 'Home')}
-        {categories.map((category) => (
-          <Fragment key={category.slug}>
-            {item(category.slug, `/${category.slug}`, category.title)}
-            {category.slug === MOBILE_BREAK_AFTER && <span className="nav-break" aria-hidden="true" />}
-          </Fragment>
-        ))}
+        {/* "Services" opens a dropdown of the video subtabs on hover (or keyboard focus). */}
+        <div className="nav-services" onMouseEnter={() => setHoverKey('services')}>
+          <button
+            type="button"
+            data-nav-key="services"
+            className={`nav-services-label${onServicePage ? ' active' : ''}`}
+            aria-haspopup="true"
+            onFocus={() => setHoverKey('services')}
+            onBlur={() => setHoverKey(null)}
+          >
+            Services
+          </button>
+          <div className="nav-dropdown">
+            <div className="nav-dropdown-list">
+              {categories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${category.slug}`}
+                  className={activeKey === category.slug ? 'active' : undefined}
+                >
+                  {category.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
         {item('about', '/about', 'About Me')}
         <span
           className={`nav-underline${line.slide ? ' slide' : ''}`}
