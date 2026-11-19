@@ -3,6 +3,13 @@ import path from 'node:path';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // The Events and Short Films subtabs were folded into Brand Videos and Miscellaneous.
+  async redirects() {
+    return [
+      { source: '/events', destination: '/brand-videos', permanent: true },
+      { source: '/short-films', destination: '/miscellaneous', permanent: true },
+    ];
+  },
   webpack(config, { dir, config: { distDir } }) {
     // Let pages import video files so they are served with the site's bundled static files
     // (/_next/static/media), whichever part of the build first sees the import.

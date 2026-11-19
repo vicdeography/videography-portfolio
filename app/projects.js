@@ -39,19 +39,10 @@ export const projects = {
       poster: mealsOnWheelsPoster.src,
       title: 'Meals on Wheels',
     },
-  ],
-  events: [
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Leo%20and%20Friend%20Show.mov',
       poster: leoAndFriendsPoster.src,
       title: 'Leo & Friends at Carrollton Station',
-    },
-  ],
-  'short-films': [
-    {
-      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/The%20Staring%20Contest%20264.mov',
-      poster: staringContestPoster.src,
-      title: 'The Staring Contest',
     },
   ],
   miscellaneous: [
@@ -59,6 +50,11 @@ export const projects = {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Lisbon%20video.mov',
       poster: lisbonAtDuskPoster.src,
       title: 'Lisbon at Dusk',
+    },
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/The%20Staring%20Contest%20264.mov',
+      poster: staringContestPoster.src,
+      title: 'The Staring Contest',
     },
   ],
   sports: [
