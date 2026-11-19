@@ -549,8 +549,14 @@ a {
   text-transform: uppercase;
 }
 
-/* Larger screens: name and tagline on the left, menu on the right. */
+/* Larger screens: name and tagline on the left, menu on the right, spread wider than the page content. */
 @media (min-width: 601px) {
+  .header-shell {
+    max-width: 1360px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   .site-header {
     flex-direction: row;
     justify-content: space-between;
@@ -559,11 +565,11 @@ a {
   }
 
   .wordmark {
-    width: min(460px, 44vw);
+    width: min(580px, 50vw);
   }
 
   .wordmark-text {
-    font-size: clamp(1.2rem, 2.6vw, 1.9rem);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
   }
 
   .tagline {
