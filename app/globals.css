@@ -32,7 +32,7 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 48px;
   margin: 0;
   font-size: 0.7rem;
   letter-spacing: 0.14rem;
@@ -70,7 +70,7 @@ a {
   color: rgba(221, 213, 195, 0.7);
 }
 
-/* "Services" dropdown: a plain vertical list of the video subtabs that fades in under the label on hover.
+/* "Services" dropdown: a vertical list of the video subtabs that fades in under the label on hover.
    The top padding bridges the gap so the pointer can move down into it without it closing. */
 .nav-services {
   position: relative;
@@ -79,9 +79,9 @@ a {
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -19px;
   z-index: 50;
-  padding-top: 10px;
+  padding-top: 12px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4px);
@@ -104,7 +104,19 @@ a {
 .nav-dropdown-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  min-width: 190px;
+  padding: 4px 18px;
+  background: #000;
+  border: 1px solid rgba(243, 239, 233, 0.18);
+}
+
+.nav-dropdown a {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(243, 239, 233, 0.08);
+}
+
+.nav-dropdown a:last-child {
+  border-bottom: 0;
 }
 
 /* The hover underline: fades in under the hovered item, slides between items, fades out on leave. */
@@ -547,16 +559,16 @@ a {
   }
 
   .wordmark {
-    width: min(340px, 40vw);
+    width: min(460px, 44vw);
   }
 
   .wordmark-text {
-    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-size: clamp(1.2rem, 2.6vw, 1.9rem);
   }
 
   .tagline {
-    font-size: 0.6rem;
-    letter-spacing: 0.18rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
   }
 }
 
