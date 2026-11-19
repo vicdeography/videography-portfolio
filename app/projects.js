@@ -4,6 +4,7 @@ import leoAndFriendsPoster from '../public/projects/leo-and-friends.jpg';
 import staringContestPoster from '../public/projects/the-staring-contest.jpg';
 import lisbonAtDuskPoster from '../public/projects/lisbon-at-dusk.jpg';
 import lucSoccerPoster from '../public/projects/luc-soccer-huddle.jpg';
+import loyolaWcsPoster from '../public/projects/loyola-wcs-vs-northwestern.jpg';
 
 // Real projects for each subtab, in display order. Each one can have:
 //   video:       URL of the video file (an MP4 or H.264 .mov in the public Vercel Blob store)
@@ -57,6 +58,11 @@ export const projects = {
     },
   ],
   sports: [
+    {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/WCS%20vs%20Nwestern%20h264.mov',
+      poster: loyolaWcsPoster.src,
+      title: "Loyola Women's Club Soccer vs Northwestern University",
+    },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
       title: 'Loyola Club Soccer vs University of Illinois',
