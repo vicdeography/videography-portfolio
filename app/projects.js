@@ -122,24 +122,24 @@ export const projects = {
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Mens%20Club%20Soccer%20vs%20Nwestern%20h264.mov',
       poster: loyolaMcsNorthwesternPoster.src,
-      title: "Loyola Men's Club Soccer vs Northwestern University",
+      title: "Men's Soccer: Loyola vs Northwestern",
       date: 'October 2026',
     },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UChicago%20h264.mov',
       poster: loyolaMcsUChicagoPoster.src,
-      title: "Loyola Men's Club Soccer vs University of Chicago",
+      title: "Men's Soccer: Loyola vs UChicago",
       date: 'October 2026',
     },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/WCS%20vs%20Nwestern%20h264.mov',
       poster: loyolaWcsPoster.src,
-      title: "Loyola Women's Club Soccer vs Northwestern University",
+      title: "Women's Soccer: Loyola vs Northwestern",
       date: 'September 2026',
     },
     {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/LUC%20Club%20Soccer%20vs%20UofI%20final%20264.mov',
-      title: 'Loyola Club Soccer vs University of Illinois',
+      title: "Men's Soccer: Loyola vs Illinois",
       date: 'September 2026',
       poster: lucSoccerPoster.src,
     },
