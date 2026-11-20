@@ -9,6 +9,11 @@ import takedaPoster from '../public/projects/takeda-impact-deliveries.jpg';
 import phiSigPoster from '../public/projects/phi-sigma-sigma-recruitment.jpg';
 import loyolaMcsNorthwesternPoster from '../public/projects/loyola-mcs-vs-northwestern.jpg';
 import loyolaMcsUChicagoPoster from '../public/projects/loyola-mcs-vs-uchicago.jpg';
+import trafficTechPoster from '../public/projects/podcast-traffic-tech.jpg';
+import antiCrueltyPoster from '../public/projects/podcast-anti-cruelty.jpg';
+import osagieEmuzePoster from '../public/projects/podcast-osagie-emuze.jpg';
+import danielFabikovicPoster from '../public/projects/podcast-daniel-fabikovic.jpg';
+import thriftingChicagoPoster from '../public/projects/podcast-thrifting-chicago.jpg';
 
 // Real projects for each subtab, in display order. Each one can have:
 //   video:       URL of the video file (an MP4 or H.264 .mov in the public Vercel Blob store)
@@ -62,14 +67,17 @@ export const projects = {
   podcasts: [
     {
       youtube: 'https://www.youtube.com/watch?v=I_ilD6WphnA',
+      poster: trafficTechPoster.src,
       title: 'Traffic Tech',
     },
     {
       youtube: 'https://www.youtube.com/watch?v=2nPCrh3RxPQ',
+      poster: antiCrueltyPoster.src,
       title: 'Anti Cruelty Center',
     },
     {
       youtube: 'https://www.youtube.com/watch?v=aVDFf8bu5nc',
+      poster: osagieEmuzePoster.src,
       title: 'Osagie Emuze',
     },
     {
@@ -82,10 +90,12 @@ export const projects = {
     },
     {
       youtube: 'https://www.youtube.com/watch?v=Bae0U3corbo',
+      poster: danielFabikovicPoster.src,
       title: 'Daniel Fabikovič',
     },
     {
       youtube: 'https://www.youtube.com/watch?v=ARDC3nSBP1w',
+      poster: thriftingChicagoPoster.src,
       title: 'Thrifting in Chicago',
     },
   ],
