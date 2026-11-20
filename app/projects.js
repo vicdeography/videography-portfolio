@@ -14,6 +14,8 @@ import antiCrueltyPoster from '../public/projects/podcast-anti-cruelty.jpg';
 import osagieEmuzePoster from '../public/projects/podcast-osagie-emuze.jpg';
 import danielFabikovicPoster from '../public/projects/podcast-daniel-fabikovic.jpg';
 import thriftingChicagoPoster from '../public/projects/podcast-thrifting-chicago.jpg';
+import neeqPoster from '../public/projects/podcast-neeq.jpg';
+import jOnyxPoster from '../public/projects/podcast-j-onyx.jpg';
 
 // Real projects for each subtab, in display order. Each one can have:
 //   video:       URL of the video file (an MP4 or H.264 .mov in the public Vercel Blob store)
@@ -82,10 +84,12 @@ export const projects = {
     },
     {
       youtube: 'https://www.youtube.com/watch?v=gbbcUXvad8I',
+      poster: neeqPoster.src,
       title: 'Neeq',
     },
     {
       youtube: 'https://www.youtube.com/watch?v=SRLhY7TuOjg',
+      poster: jOnyxPoster.src,
       title: 'J. Onyx',
     },
     {
