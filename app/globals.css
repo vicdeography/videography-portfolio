@@ -422,6 +422,16 @@ a {
   color: rgba(221, 213, 195, 0.75);
 }
 
+/* Month and year the video was shot, in small capitals just under the title. */
+.project-text .project-date {
+  margin: -4px 0 12px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(221, 213, 195, 0.55);
+}
+
 /* Subtabs with more than one project: two videos per row, title underneath each.
    Phones keep the one-per-row stack set in the max-width: 560px block. */
 @media (min-width: 561px) {
@@ -440,6 +450,10 @@ a {
   .project-grid .project-text h3 {
     margin: 0;
     font-size: 1.15rem;
+  }
+
+  .project-grid .project-text .project-date {
+    margin-top: 6px;
   }
 }
 
