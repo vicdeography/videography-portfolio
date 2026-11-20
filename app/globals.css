@@ -31,36 +31,93 @@ a {
 .site-nav {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 920px;
-  gap: 8px 28px;
+  align-items: center;
+  gap: 64px;
   margin: 0;
   font-size: 0.8rem;
   letter-spacing: 0.14rem;
   text-transform: uppercase;
 }
 
-.site-nav a {
-  padding-bottom: 2px;
+.site-nav a,
+.nav-services-label {
+  padding: 0 0 2px;
+  border: 0;
   border-bottom: 1px solid transparent;
+  background: none;
   color: rgba(221, 213, 195, 0.7);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
-.nav-break {
-  display: none;
+.nav-services-label {
+  cursor: default;
 }
 
 .site-nav a:hover,
-.site-nav a.active {
+.site-nav a.active,
+.nav-services:hover .nav-services-label,
+.nav-services-label.active {
   color: #ddd5c3;
 }
 
 /* While another item is hovered, the current page's item dims so the bright text follows the underline. */
-.site-nav.is-hovering a.active:not(:hover):not(:focus-visible) {
+.site-nav.is-hovering a.active:not(:hover):not(:focus-visible),
+.site-nav.is-hovering .nav-services:not(:hover) .nav-services-label.active:not(:focus-visible) {
   color: rgba(221, 213, 195, 0.7);
+}
+
+/* "Services" dropdown: a vertical list of the video subtabs that fades in under the label on hover.
+   The top padding bridges the gap so the pointer can move down into it without it closing. */
+.nav-services {
+  position: relative;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 50;
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0.25s;
+}
+
+.nav-services:hover .nav-dropdown,
+.nav-services:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-dropdown-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  padding: 4px 18px;
+  text-align: center;
+  background: #000;
+  border: 1px solid rgba(243, 239, 233, 0.18);
+}
+
+.nav-dropdown a {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(243, 239, 233, 0.08);
+}
+
+.nav-dropdown a:last-child {
+  border-bottom: 0;
 }
 
 /* The hover underline: fades in under the hovered item, slides between items, fades out on leave. */
@@ -351,6 +408,27 @@ a {
   color: rgba(221, 213, 195, 0.75);
 }
 
+/* Subtabs with more than one project: two videos per row, title underneath each.
+   Phones keep the one-per-row stack set in the max-width: 560px block. */
+@media (min-width: 561px) {
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 48px;
+  }
+
+  .project-grid .project-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .project-grid .project-text h3 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+}
+
 .back-link {
   margin-top: 56px;
   text-align: center;
@@ -470,6 +548,22 @@ a {
   font-size: 0.85rem;
   letter-spacing: 0.22rem;
   text-transform: uppercase;
+}
+
+/* Larger screens: name and tagline centered, with the menu centered underneath. */
+@media (min-width: 601px) {
+  .wordmark {
+    width: min(580px, 70vw);
+  }
+
+  .wordmark-text {
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+  }
 }
 
 .eyebrow {
@@ -777,27 +871,9 @@ a {
 }
 
 
-@media (max-width: 960px) {
-  /* Keep the whole menu on one line: the text scales with the screen width.
-     39.5 is the menu's width per pixel of font size (plus a little slack);
-     80px covers the page padding and the gaps between items. */
-  .site-nav {
-    flex-wrap: nowrap;
-    gap: 0 6px;
-    font-size: min(0.8rem, calc((100vw - 80px) / 39.5));
-    letter-spacing: 0.02em;
-  }
-
-  .site-nav a {
-    white-space: nowrap;
-  }
-
-}
 
 @media (max-width: 600px) {
-  /* Phones: two centered rows (Home to Sports, then the rest) in a compact header.
-     22.5 is the wider row's width per pixel of font size; 74px covers the page
-     padding and the gaps between items. */
+  /* Phones: a compact header. */
   .header-shell {
     padding-top: 14px;
   }
@@ -809,21 +885,6 @@ a {
 
   .brand {
     gap: 4px;
-  }
-
-  .site-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 16px;
-    font-size: min(12px, calc((100vw - 74px) / 22.5));
-    letter-spacing: 0.08em;
-    line-height: 1.3;
-  }
-
-  .nav-break {
-    display: block;
-    flex-basis: 100%;
-    height: 0;
   }
 }
 
