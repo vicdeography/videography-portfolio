@@ -12,7 +12,7 @@ export default function SiteNav() {
   // The page being viewed: 'home' for /, otherwise the first part of the path (a category slug or 'about').
   const pathname = usePathname();
   const activeKey = pathname.split('/')[1] || 'home';
-  // The subtabs grouped under "Services" in the desktop menu.
+  // The subtabs grouped under "Portfolio" in the menu.
   const onServicePage = categories.some((category) => category.slug === activeKey);
   const router = useRouter();
   const [hoverKey, setHoverKey] = useState(null);
@@ -22,8 +22,8 @@ export default function SiteNav() {
   const visibleRef = useRef(false);
   // Phones show a menu button instead of the row of links; this is whether its dropdown is open.
   const [menuOpen, setMenuOpen] = useState(false);
-  // Whether the Services dropdown was opened by a tap or click (hovering opens it without this),
-  // and whether the Services group in the phone menu is expanded.
+  // Whether the Portfolio dropdown was opened by a tap or click (hovering opens it without this),
+  // and whether the Portfolio group in the phone menu is expanded.
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(onServicePage);
   const headerRef = useRef(null);
@@ -82,7 +82,7 @@ export default function SiteNav() {
     setServicesOpen(false);
   }, [pathname]);
 
-  // A tapped-open Services dropdown closes on a tap elsewhere or the Escape key.
+  // A tapped-open Portfolio dropdown closes on a tap elsewhere or the Escape key.
   useEffect(() => {
     if (!servicesOpen) return undefined;
     const onKey = (event) => {
@@ -169,7 +169,7 @@ export default function SiteNav() {
         onMouseLeave={() => setHoverKey(null)}
       >
         {item('home', '/', 'Home')}
-        {/* "Services" opens a dropdown of the video subtabs on hover, keyboard focus, or a tap
+        {/* "Portfolio" opens a dropdown of the video subtabs on hover, keyboard focus, or a tap
             (touch screens have no hover). */}
         <div
           className={`nav-services${servicesOpen ? ' open' : ''}`}
@@ -189,7 +189,7 @@ export default function SiteNav() {
             onFocus={() => setHoverKey('services')}
             onBlur={() => setHoverKey(null)}
           >
-            Services
+            Portfolio
           </button>
           <div className="nav-dropdown">
             <div className="nav-dropdown-list">
@@ -218,7 +218,7 @@ export default function SiteNav() {
       </nav>
       <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-label="Site" hidden={!menuOpen}>
         {mobileLink('home', '/', 'Home')}
-        {/* Tapping Services shows or hides the video subtabs underneath it. */}
+        {/* Tapping Portfolio shows or hides the video subtabs underneath it. */}
         <button
           type="button"
           className={`mobile-services${onServicePage ? ' active' : ''}${mobileServicesOpen ? ' open' : ''}`}
@@ -226,7 +226,7 @@ export default function SiteNav() {
           aria-controls="mobile-services-list"
           onClick={() => setMobileServicesOpen((open) => !open)}
         >
-          Services
+          Portfolio
           <span className="mobile-services-icon" aria-hidden="true" />
         </button>
         <div id="mobile-services-list" className="mobile-services-list" hidden={!mobileServicesOpen}>
