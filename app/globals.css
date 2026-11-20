@@ -357,6 +357,7 @@ a {
 }
 
 .project-video:hover .play-label,
+.project-video:focus-visible .play-label,
 .play-label:focus-visible {
   opacity: 1;
 }

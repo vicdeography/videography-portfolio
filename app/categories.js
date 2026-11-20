@@ -14,6 +14,11 @@ export const categories = [
     title: 'Miscellaneous',
     blurb: 'Experiments, personal projects, and everything in between.',
   },
+  {
+    slug: 'podcasts',
+    title: 'Podcasts',
+    blurb: 'Podcast episodes, watched on YouTube.',
+  },
 ];
 
 export function getCategory(slug) {

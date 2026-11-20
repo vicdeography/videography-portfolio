@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { categories, getCategory } from '../categories';
 import { getProjects } from '../projects';
 import ProjectVideo from '../ProjectVideo';
+import YouTubeLink from '../YouTubeLink';
 import Reveal from '../Reveal';
 
 export const dynamicParams = false;
@@ -35,7 +36,9 @@ export default function CategoryPage({ params }) {
             <div className={projects.length > 1 ? 'project-list project-grid' : 'project-list'}>
               {projects.map((project, index) => (
                 <Reveal as="article" key={index} className="project-row">
-                  {project.video ? (
+                  {project.youtube ? (
+                    <YouTubeLink href={project.youtube} poster={project.poster} title={project.title} />
+                  ) : project.video ? (
                     <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
                   ) : (
                     <div className="project-media" aria-hidden="true" />
