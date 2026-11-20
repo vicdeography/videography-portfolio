@@ -32,9 +32,9 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 64px;
   margin: 0;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14rem;
   text-transform: uppercase;
 }
