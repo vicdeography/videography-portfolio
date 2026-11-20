@@ -22,6 +22,10 @@ export default function SiteNav() {
   const visibleRef = useRef(false);
   // Phones show a menu button instead of the row of links; this is whether its dropdown is open.
   const [menuOpen, setMenuOpen] = useState(false);
+  // Whether the Services dropdown was opened by a tap or click (hovering opens it without this),
+  // and whether the Services group in the phone menu is expanded.
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(onServicePage);
   const headerRef = useRef(null);
   // If the logo image ever fails to load, show the name as text instead of a broken-image box.
   const [wordmarkFailed, setWordmarkFailed] = useState(false);
@@ -75,7 +79,25 @@ export default function SiteNav() {
   // briefly uncovered while the new one loads.
   useEffect(() => {
     setMenuOpen(false);
+    setServicesOpen(false);
   }, [pathname]);
+
+  // A tapped-open Services dropdown closes on a tap elsewhere or the Escape key.
+  useEffect(() => {
+    if (!servicesOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape') setServicesOpen(false);
+    };
+    const onPointer = (event) => {
+      if (!event.target.closest?.('.nav-services')) setServicesOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointer);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointer);
+    };
+  }, [servicesOpen]);
 
   useEffect(() => {
     const onResize = () => setLine((previous) => ({ ...previous, visible: false }));
@@ -91,6 +113,19 @@ export default function SiteNav() {
       onMouseEnter={() => setHoverKey(key)}
       onFocus={() => setHoverKey(key)}
       onBlur={() => setHoverKey(null)}
+    >
+      {label}
+    </Link>
+  );
+
+  const mobileLink = (key, href, label) => (
+    <Link
+      key={key}
+      href={href}
+      className={activeKey === key ? 'active' : undefined}
+      onClick={() => {
+        if (key === activeKey) setMenuOpen(false);
+      }}
     >
       {label}
     </Link>
@@ -134,13 +169,23 @@ export default function SiteNav() {
         onMouseLeave={() => setHoverKey(null)}
       >
         {item('home', '/', 'Home')}
-        {/* "Services" opens a dropdown of the video subtabs on hover (or keyboard focus). */}
-        <div className="nav-services" onMouseEnter={() => setHoverKey('services')}>
+        {/* "Services" opens a dropdown of the video subtabs on hover, keyboard focus, or a tap
+            (touch screens have no hover). */}
+        <div
+          className={`nav-services${servicesOpen ? ' open' : ''}`}
+          onMouseEnter={() => setHoverKey('services')}
+          // Only a real mouse leaving closes it: touch screens send a stray "leave" right after a tap.
+          onPointerLeave={(event) => {
+            if (event.pointerType === 'mouse') setServicesOpen(false);
+          }}
+        >
           <button
             type="button"
             data-nav-key="services"
             className={`nav-services-label${onServicePage ? ' active' : ''}`}
             aria-haspopup="true"
+            aria-expanded={servicesOpen}
+            onClick={() => setServicesOpen((open) => !open)}
             onFocus={() => setHoverKey('services')}
             onBlur={() => setHoverKey(null)}
           >
@@ -172,20 +217,22 @@ export default function SiteNav() {
         />
       </nav>
       <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-label="Site" hidden={!menuOpen}>
-        {[['home', '/', 'Home'], ...categories.map((c) => [c.slug, `/${c.slug}`, c.title]), ['about', '/about', 'About Me']].map(
-          ([key, href, label]) => (
-            <Link
-              key={key}
-              href={href}
-              className={activeKey === key ? 'active' : undefined}
-              onClick={() => {
-                if (key === activeKey) setMenuOpen(false);
-              }}
-            >
-              {label}
-            </Link>
-          ),
-        )}
+        {mobileLink('home', '/', 'Home')}
+        {/* Tapping Services shows or hides the video subtabs underneath it. */}
+        <button
+          type="button"
+          className={`mobile-services${onServicePage ? ' active' : ''}${mobileServicesOpen ? ' open' : ''}`}
+          aria-expanded={mobileServicesOpen}
+          aria-controls="mobile-services-list"
+          onClick={() => setMobileServicesOpen((open) => !open)}
+        >
+          Services
+          <span className="mobile-services-icon" aria-hidden="true" />
+        </button>
+        <div id="mobile-services-list" className="mobile-services-list" hidden={!mobileServicesOpen}>
+          {categories.map((category) => mobileLink(category.slug, `/${category.slug}`, category.title))}
+        </div>
+        {mobileLink('about', '/about', 'About Me')}
       </nav>
     </header>
   );

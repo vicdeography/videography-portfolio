@@ -91,8 +91,21 @@ a {
     visibility 0s linear 0.25s;
 }
 
-.nav-services:hover .nav-dropdown,
-.nav-services:focus-within .nav-dropdown {
+/* Touch screens keep a tapped item "hovered", so there the dropdown follows taps (.open) only. */
+@media (hover: hover) {
+  .nav-services:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+}
+
+.nav-services:focus-visible .nav-dropdown,
+.nav-services:has(:focus-visible) .nav-dropdown,
+.nav-services.open .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%);
@@ -1040,8 +1053,56 @@ a {
     color: rgba(221, 213, 195, 0.7);
   }
 
-  .mobile-menu a:last-child {
+  .mobile-menu > a:last-child {
     border-bottom: 0;
+  }
+
+  /* Services in the phone menu: a row like the links that shows or hides the subtabs below it. */
+  .mobile-services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(243, 239, 233, 0.08);
+    background: none;
+    color: rgba(221, 213, 195, 0.7);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-services.active {
+    color: #ddd5c3;
+  }
+
+  /* A small chevron that points down when closed and up when open. */
+  .mobile-services-icon {
+    width: 7px;
+    height: 7px;
+    margin-right: 4px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.25s ease;
+  }
+
+  .mobile-services.open .mobile-services-icon {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  .mobile-services-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 18px;
+    font-size: 0.78rem;
+  }
+
+  .mobile-services-list[hidden] {
+    display: none;
   }
 
   .mobile-menu a.active {
