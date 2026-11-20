@@ -10,14 +10,14 @@ export const categories = [
     blurb: 'Game day coverage, athlete features, and highlight reels.',
   },
   {
-    slug: 'miscellaneous',
-    title: 'Miscellaneous',
-    blurb: 'Experiments, personal projects, and everything in between.',
-  },
-  {
     slug: 'podcasts',
     title: 'Podcasts',
     blurb: 'Podcast episodes, watched on YouTube.',
+  },
+  {
+    slug: 'miscellaneous',
+    title: 'Miscellaneous',
+    blurb: 'Experiments, personal projects, and everything in between.',
   },
 ];
 
