@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ContactForm from './ContactForm';
 import ProjectVideo from './ProjectVideo';
 import { getRecentProjects } from './projects';
+import RecentCarousel from './RecentCarousel';
 import ReelVideo from './ReelVideo';
 import Reveal from './Reveal';
 import YouTubeLink from './YouTubeLink';
@@ -53,10 +54,10 @@ export default function HomePage() {
 
       <div className="dark-page">
         <div className="page-shell">
-          {/* A row of the latest projects; it scrolls sideways on screens too narrow to show all five. */}
+          {/* A sideways-scrolling row of the latest projects. */}
           <Reveal as="section" className="recent-projects" aria-labelledby="recent-heading">
             <h2 id="recent-heading" className="contact-heading">Recent Projects</h2>
-            <div className="recent-row">
+            <RecentCarousel>
               {getRecentProjects().map((project) => (
                 <article key={project.title} className="recent-item">
                   {project.youtube ? (
@@ -68,7 +69,7 @@ export default function HomePage() {
                   {project.date && <p>{project.date}</p>}
                 </article>
               ))}
-            </div>
+            </RecentCarousel>
           </Reveal>
 
           <Reveal as="section" id="contact" className="contact-bar">
