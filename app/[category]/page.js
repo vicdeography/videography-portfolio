@@ -45,8 +45,8 @@ export default function CategoryPage({ params }) {
                   )}
                   <div className="project-text">
                     {project.title && <h3>{project.title}</h3>}
-                    {project.date && <p className="project-date">{project.date}</p>}
                     {project.description && <p>{project.description}</p>}
+                    {project.date && <p className="project-date">{project.date}</p>}
                   </div>
                 </Reveal>
               ))}
