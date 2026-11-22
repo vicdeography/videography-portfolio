@@ -149,3 +149,16 @@ export const projects = {
 export function getProjects(slug) {
   return projects[slug] ?? [];
 }
+
+// The home page's "Recent Projects" row, left to right: [subtab, title] of projects listed above.
+const RECENT = [
+  ['brand-videos', 'Takeda Impact Deliveries'],
+  ['brand-videos', 'Phi Sigma Sigma 2027 Recruitment Video'],
+  ['sports', "Men's Soccer: Loyola vs Northwestern"],
+  ['sports', "Men's Soccer: Loyola vs UChicago"],
+  ['podcasts', 'Traffic Tech'],
+];
+
+export function getRecentProjects() {
+  return RECENT.map(([slug, title]) => projects[slug].find((project) => project.title === title)).filter(Boolean);
+}
