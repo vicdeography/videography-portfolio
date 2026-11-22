@@ -314,6 +314,8 @@ a {
 
 .project-video {
   position: relative;
+  /* Block-level even when the box is a link (YouTube videos), so it keeps its 16:9 shape. */
+  display: block;
   overflow: hidden;
   background-color: #000;
   background-size: cover;
@@ -660,6 +662,157 @@ a {
 
 .contact-row .contact-box {
   white-space: nowrap;
+}
+
+/* "Recent Projects" on the home page: a sideways-scrolling row of videos, each with its title and
+   shoot date. About two and a half fit across on larger screens; arrows or a swipe move along. */
+.recent-projects {
+  padding-top: 12px;
+  text-align: center;
+}
+
+.recent-carousel {
+  position: relative;
+  margin-top: 28px;
+}
+
+.recent-row {
+  --recent-gap: 24px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2 * var(--recent-gap)) / 2.5);
+  gap: var(--recent-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0;
+  scrollbar-width: none;
+  text-align: left;
+}
+
+.recent-row::-webkit-scrollbar {
+  display: none;
+}
+
+.recent-item {
+  scroll-snap-align: start;
+}
+
+.recent-item h3 {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.recent-item p {
+  margin: 6px 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(221, 213, 195, 0.55);
+}
+
+/* Arrows: thin chevrons just outside the row, centered on the videos. --card-w is one video's width. */
+.recent-arrow {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: calc(var(--card-w) * 9 / 16);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #ddd5c3;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.recent-arrow::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+
+.recent-arrow-prev {
+  left: -52px;
+}
+
+.recent-arrow-prev::before {
+  transform: translateX(3px) rotate(-135deg);
+}
+
+.recent-arrow-next {
+  right: -52px;
+}
+
+.recent-arrow-next::before {
+  transform: translateX(-3px) rotate(45deg);
+}
+
+.recent-arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/* The short divider between the projects and the contact row (matching the one below the contact details). */
+.recent-projects + .contact-bar::before {
+  content: '';
+  display: block;
+  width: 160px;
+  height: 1px;
+  margin: 56px auto 44px;
+  background: rgba(243, 239, 233, 0.3);
+}
+
+/* Wide screens: the row runs wider than the page column, like the contact row. */
+@media (min-width: 601px) {
+  .recent-carousel {
+    --carousel-w: min(1400px, calc(100vw - 120px));
+    --card-w: calc((var(--carousel-w) - 48px) / 2.5);
+    width: var(--carousel-w);
+    margin-left: 50%;
+    translate: -50% 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .recent-carousel {
+    --card-w: calc((var(--carousel-w) - 24px) / 1.25);
+  }
+
+  .recent-row {
+    grid-auto-columns: calc((100% - var(--recent-gap)) / 1.25);
+  }
+}
+
+@media (max-width: 600px) {
+  .recent-row {
+    --recent-gap: 14px;
+    grid-auto-columns: 78%;
+  }
+
+  .recent-carousel {
+    margin-top: 20px;
+  }
+
+  .recent-item h3 {
+    font-size: 0.85rem;
+  }
+
+  .recent-arrow {
+    display: none;
+  }
+
+  .recent-item .play-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+  }
 }
 
 /* Wider screens: let the contact row run wider than the page column so the details spread out. */

@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import ContactForm from './ContactForm';
+import ProjectVideo from './ProjectVideo';
+import { getRecentProjects } from './projects';
+import RecentCarousel from './RecentCarousel';
 import ReelVideo from './ReelVideo';
 import Reveal from './Reveal';
+import YouTubeLink from './YouTubeLink';
 import portraitImage from '../public/about/portrait.jpg';
 import reelPoster from '../public/reel/reel-poster.jpg';
 import reelVideo from '../public/reel/reel-1080.mp4';
@@ -50,6 +54,24 @@ export default function HomePage() {
 
       <div className="dark-page">
         <div className="page-shell">
+          {/* A sideways-scrolling row of the latest projects. */}
+          <Reveal as="section" className="recent-projects" aria-labelledby="recent-heading">
+            <h2 id="recent-heading" className="contact-heading">Recent Projects</h2>
+            <RecentCarousel>
+              {getRecentProjects().map((project) => (
+                <article key={project.title} className="recent-item">
+                  {project.youtube ? (
+                    <YouTubeLink href={project.youtube} poster={project.poster} title={project.title} />
+                  ) : (
+                    <ProjectVideo src={project.video} poster={project.poster} title={project.title} />
+                  )}
+                  <h3>{project.title}</h3>
+                  {project.date && <p>{project.date}</p>}
+                </article>
+              ))}
+            </RecentCarousel>
+          </Reveal>
+
           <Reveal as="section" id="contact" className="contact-bar">
             <h2 className="contact-heading">Contact Information</h2>
             <div className="contact-row">
