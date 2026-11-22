@@ -1080,13 +1080,13 @@ a {
     letter-spacing: 0.2rem;
   }
 
-  /* Phones: one centered column. */
+  /* Phones: one column, lined up on the left. */
   .contact-row {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
+    justify-items: start;
     gap: 18px;
-    text-align: center;
+    text-align: left;
   }
 
   .contact-row .contact-box {
