@@ -419,9 +419,9 @@ a {
 
 .project-text p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(221, 213, 195, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ddd5c3;
 }
 
 /* Month and year the video was shot, in small capitals just under the title. */
