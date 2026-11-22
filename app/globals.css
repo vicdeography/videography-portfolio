@@ -296,7 +296,7 @@ a {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 52px;
   margin-top: 20px;
 }
 
@@ -424,9 +424,9 @@ a {
   color: #ddd5c3;
 }
 
-/* Month and year the video was shot, in small capitals just under the title. */
+/* Month and year the video was shot, in small capitals at the bottom of each project. */
 .project-text .project-date {
-  margin: -4px 0 12px;
+  margin: 10px 0 0;
   font-size: 0.72rem;
   line-height: 1.4;
   letter-spacing: 0.18em;
@@ -441,7 +441,7 @@ a {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 32px;
-    row-gap: 48px;
+    row-gap: 60px;
   }
 
   .project-grid .project-row {
@@ -450,12 +450,8 @@ a {
   }
 
   .project-grid .project-text h3 {
-    margin: 0;
+    margin: 0 0 8px;
     font-size: 1.15rem;
-  }
-
-  .project-grid .project-text .project-date {
-    margin-top: 6px;
   }
 }
 
