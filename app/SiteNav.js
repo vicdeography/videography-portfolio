@@ -160,7 +160,7 @@ export default function SiteNav() {
             onError={() => setWordmarkFailed(true)}
           />
         )}
-        <span className="tagline">Cinematography - Videography</span>
+        <span className="tagline">Video Production</span>
       </Link>
       <nav
         ref={navRef}
