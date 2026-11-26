@@ -5,6 +5,7 @@ import staringContestPoster from '../public/projects/the-staring-contest.jpg';
 import lisbonAtDuskPoster from '../public/projects/lisbon-at-dusk.jpg';
 import lucSoccerPoster from '../public/projects/luc-soccer-huddle.jpg';
 import loyolaWcsPoster from '../public/projects/loyola-wcs-vs-northwestern.jpg';
+import loyolaMvbPoster from '../public/projects/loyola-mvb-home-tournament.jpg';
 import takedaPoster from '../public/projects/takeda-impact-deliveries.jpg';
 import phiSigPoster from '../public/projects/phi-sigma-sigma-recruitment.jpg';
 import loyolaMcsNorthwesternPoster from '../public/projects/loyola-mcs-vs-northwestern.jpg';
@@ -148,6 +149,14 @@ export const projects = {
   ],
   sports: [
     {
+      video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Club%20VB%20H264.mov',
+      poster: loyolaMvbPoster.src,
+      title: "Men's Volleyball: Loyola Home Tournament",
+      date: 'November 2026',
+      description:
+        'Tournament montage of Loyola University Chicago Men’s Club Volleyball team. Shot with Panasonic LUMIX G85.',
+    },
+    {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Mens%20Club%20Soccer%20vs%20Nwestern%20h264.mov',
       poster: loyolaMcsNorthwesternPoster.src,
       title: "Men's Soccer: Loyola vs Northwestern",
@@ -182,17 +191,25 @@ export const projects = {
   ],
 };
 
+// "October 2026" -> a number that sorts by month; projects with no date go last.
+function shotMonth(project) {
+  const time = Date.parse(`1 ${project.date}`);
+  return Number.isNaN(time) ? -Infinity : time;
+}
+
+// Each subtab lists its projects newest first by shoot month. The sort keeps the order above for
+// projects shot in the same month.
 export function getProjects(slug) {
-  return projects[slug] ?? [];
+  return [...(projects[slug] ?? [])].sort((a, b) => shotMonth(b) - shotMonth(a));
 }
 
 // The home page's "Recent Projects" row, left to right: [subtab, title] of projects listed above.
 const RECENT = [
+  ['sports', "Men's Volleyball: Loyola Home Tournament"],
   ['brand-videos', 'Takeda Impact Deliveries'],
   ['brand-videos', 'Phi Sigma Sigma 2027 Recruitment Video'],
   ['sports', "Men's Soccer: Loyola vs Northwestern"],
   ['sports', "Men's Soccer: Loyola vs UChicago"],
-  ['podcasts', 'Traffic Tech'],
 ];
 
 export function getRecentProjects() {
