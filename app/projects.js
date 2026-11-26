@@ -152,6 +152,7 @@ export const projects = {
       video: 'https://yruexne8z4cwufst.public.blob.vercel-storage.com/Club%20VB%20H264.mov',
       poster: loyolaMvbPoster.src,
       title: "Men's Volleyball: Loyola Home Tournament",
+      date: 'November 2026',
       description:
         'Tournament montage of Loyola University Chicago Men’s Club Volleyball team. Shot with Panasonic LUMIX G85.',
     },
@@ -190,8 +191,16 @@ export const projects = {
   ],
 };
 
+// "October 2026" -> a number that sorts by month; projects with no date go last.
+function shotMonth(project) {
+  const time = Date.parse(`1 ${project.date}`);
+  return Number.isNaN(time) ? -Infinity : time;
+}
+
+// Each subtab lists its projects newest first by shoot month. The sort keeps the order above for
+// projects shot in the same month.
 export function getProjects(slug) {
-  return projects[slug] ?? [];
+  return [...(projects[slug] ?? [])].sort((a, b) => shotMonth(b) - shotMonth(a));
 }
 
 // The home page's "Recent Projects" row, left to right: [subtab, title] of projects listed above.
@@ -201,7 +210,6 @@ const RECENT = [
   ['brand-videos', 'Phi Sigma Sigma 2027 Recruitment Video'],
   ['sports', "Men's Soccer: Loyola vs Northwestern"],
   ['sports', "Men's Soccer: Loyola vs UChicago"],
-  ['podcasts', 'Traffic Tech'],
 ];
 
 export function getRecentProjects() {
